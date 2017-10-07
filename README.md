@@ -1,6 +1,6 @@
 # 45C Robotics
 
-MATE ROV 2017 Code
+MATE ROV 2018 Code
 
 ## DRIVER INFORMATION
 
@@ -24,5 +24,4 @@ Articulation we have right now:
 
 ## REFERENCES
 
-(insert references here)
 
