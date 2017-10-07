@@ -1,15 +1,18 @@
 # 45C Robotics
+
 MATE ROV 2017 Code
 
-##DRIVER INFORMATION
+## DRIVER INFORMATION
 
-###DRIVE
+### DRIVE
+
 ```
 To drive:
 	One joystick for vertical movement
 	One arcade-drive joystick for lateral movement
 ```
-###ARTICULATION
+### ARTICULATION
+
 ```
 Follow the labels on the control box!
 Articulation we have right now:
@@ -19,6 +22,7 @@ Articulation we have right now:
   Two cameras
 ```
 
-##REFERENCES
+## REFERENCES
+
 (insert references here)
 
