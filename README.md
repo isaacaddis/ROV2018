@@ -16,7 +16,7 @@ To drive:
 ### ARTICULATION
 
 ```
-Follow the labels on the GUI! (python driver.py)
+Follow the labels on the GUI! ($ [sudo] python driver.py)
 Articulation we have right now:
   Claw
   Temperature sensor
