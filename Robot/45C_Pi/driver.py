@@ -15,8 +15,8 @@ app = htmlPy.AppGUI(title=u"45C Robotics 2018 GUi", maximized=True, plugins=True
 app.static_path = os.path.join(BASE_DIR, "static/")
 app.template_path = os.path.join(BASE_DIR, "templates/")
 
-app.web_app.setMinimumWidth(1280)
-app.web_app.setMinimumHeight(720)
+app.web_app.setMinimumWidth(1024)
+app.web_app.setMinimumHeight(768)
 
 app.maximized = True
 
