@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ 'css/bulma.min.css'|staticfile }}"> 
+
+	<link rel="stylesheet" href="{{ 'css/font-awesome.min.css'|staticfile }}"> 
+	
+	<style type="text/css">
+
+	</style>
+	<title>2018 45C Robotics</title>
+</head>
+<body>
+	<section class="hero is-primary">
+	  <div class="hero-body">
+	    <div class="container">
+	    	<img src="{{ 'Logo_BlackText.png'|staticfile }}" style = "height:300px;width:100%">
+	      <nav class="columns">
+	        <a class="column has-text-centered" href="http://bulma.io/documentation/overview/responsiveness/">
+	          <span class="icon is-large" style="margin-right: 10px;">
+	            <i class="fa fa-medkit"></i>
+	          </span>
+	          <p class="title is-4"><strong>System: </span></strong></p>
+	          <p class="subtitle"><span id = "systemStatus"></span></p>
+	        </a>
+	        <a class="column has-text-centered" href="http://bulma.io/documentation/overview/modular/">
+	          <span class="icon is-large">
+	            <i class="fa fa-bolt"></i>
+	          </span>
+	          <p class="title is-4"><strong>Voltage:</strong></p>
+	          <p class="subtitle"><span></span></p>
+	        </a>
+	        <a class="column has-text-centered" href="http://bulma.io/documentation/overview/modular/">
+	          <span class="icon is-large">
+	            <i class="fa fa-bolt"></i>
+	          </span>
+	          <p class="title is-4"><strong>Temperature:</strong></p>
+	          <p class="subtitle"><span id = "currentTemp"></span></p>
+	        </a>
+	        <a class="column has-text-centered" >
+	          <span class="icon is-large">
+	            <i class="fa fa-hand-o-up"></i>
+	          </span>
+	          <p class="title is-4"><strong>Claw State:</strong></p>
+	          <p class="subtitle"><span id="clawState"></span></p>
+	        </a>
+	        <a class="column has-text-centered" >
+	          <span class="icon is-large">
+	            <i class="fa fa-search"></i>
+	          </span>
+	          <p class="title is-4"><strong>Security State:</strong></p>
+	          <p class="subtitle"><span id="systemState"></span></p>
+	        </a>
+	        <a class="column has-text-centered" >
+	          <span class="icon is-large">
+	            <i class="fa fa-hourglass"></i>
+	          </span>
+	          <p class="title is-4">Timer:</p>
+	          <p class="subtitle">
+	          	    	<h1 class=""><strong><span class="timer"></span></strong></h1>
+	          	    	<i class=" play fa fa-play-circle"></i>
+	          	    	<i class=" pause fa fa-pause"></i>
+	          	    	<i class=" stop fa fa-stop"></i>
+			</p>
+	        </a>
+	      </nav>
+	    </div>
+	  </div>
+	</section>
+	<div class="container center">
+		<div class="columns">
+			<div class="column">
+				<div class="card">
+					<div id="temperature" style="height: 370px; width: 100%;"></div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="card">
+					<div id="voltage" style="height: 370px; width: 100%;"></div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="card">
+					<div id="depth" style="height: 370px; ;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{{ 'js/jquery.min.js'|staticfile }}"></script>
+
+	<script src="{{ 'js/canvas.min.js'|staticfile }}"></script>
+
+	<script src="{{ 'js/timer.js'|staticfile }}"></script>
+
+	<script src="{{ 'js/script.js'|staticfile }}"></script> 
+
+
+</body>
+</html>

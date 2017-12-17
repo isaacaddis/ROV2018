@@ -1,6 +1,8 @@
 # 45C Robotics
 
-MATE ROV 2017 Code
+This repository features the code for 45C Robotics' entire electronic system in the 2017-18 MATE Robotics Competition. 
+
+For more information about our team, visit [camsrov.com](camsrov.com)
 
 ## DRIVER INFORMATION
 
@@ -14,15 +16,9 @@ To drive:
 ### ARTICULATION
 
 ```
-Follow the labels on the control box!
+Follow the labels on the GUI! ($ [sudo] python driver.py)
 Articulation we have right now:
   Claw
   Temperature sensor
-  Sonar sensor
   Two cameras
 ```
-
-## REFERENCES
-
-(insert references here)
-
