@@ -8,7 +8,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 
 # GUI initializations
-app = htmlPy.AppGUI(title=u"45C Robotics 2018 GUi", maximized=True, plugins=True)
+app = htmlPy.AppGUI(title=u"45C Robotics 2018 GUI", maximized=True, plugins=True)
 
 
 # GUI configurations
