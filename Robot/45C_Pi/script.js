@@ -89,12 +89,17 @@ function videoError(e) {
 
 	function process(arr){
 		//temperature
-		var obj = {y:int(arr[0])};
-		tempChart.data.dataPoints.push(obj);
-		//voltage
-		//depth
+		if(arr[0]=="t"){
+			arr = arr.slice(1)
+			var obj = {y:int(arr[0])};
+			tempChart.data.dataPoints.push(obj);
+		}
+		if(arr[0]=="v"){
+			arr = arr.slice(1)
+			var obj = {y:int(arr[0])};
+			voltageChart.data.dataPoints.push(obj);
+		}
 	}
-process([1]);
 /*
 	Render
 */

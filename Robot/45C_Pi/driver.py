@@ -1,7 +1,13 @@
 import os
 import htmlPy
+import serial
+import time 
+
 from PyQt4 import QtGui
 
+ser = serial.Serial('/dev/ttyAMA0',9600,timeout=1)
+ser.isOpen()
+message = ""
 
 # Initial confiurations
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -21,7 +27,15 @@ app.web_app.setMinimumHeight(768)
 app.maximized = True
 
 app.template = ("index.html", {})
+while True:
+	try:
+		message = list(ser.readline())
+		app.evaluate_javascript("process("+message+")")
+	except KeyboardInterrupt:
+		ser.close()
+	time.sleep(1)
 #app.window.setWindowIcon(QtGui.QIcon(BASE_DIR + "/static/img/icon.png"))
+
 
 # Binding of back-end functionalities with GUI
 
