@@ -17,6 +17,7 @@ cap = cv2.VideoCapture(0)
 (lower,upper) = ([int(165/2), int(0*255), int(0.4*255)], [int(175/2), int(1*255), int(1*255)]) #Define the boundries 
 lower = np.array(lower)
 upper = np.array(upper)
+font = FONT_HERSHEY_COMPLEX;
 
 '''
 with this, we get an image from cap, make a mask out of it with inRange,
@@ -33,23 +34,21 @@ def processImage():
 	cnt = findBiggestContour(contours)
 	x,y,w,h = cv2.boundingRect(cnt)
 	cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
-	cv2.imwrite("/img/im.jpg",image)
+	cv2.imshow("45C Distance Tool",image)
 	'''
 	here we use trigonometry to determine the distance from the object, given that 
 	the object is t cm wide and the camera captures d degrees
 	'''
 	t = 101
 	d = 50
-	height, width, channels = im.shape
-	#print 'width: ', width
-	#print 'Traget width: ' , w
+	height, width, channels = im.shapecv.putText(img, 'This one!", (230, 50), font, 0.8, (0, 255, 0), 2, cv.LINE_AA)
+	#Prints to console
+	print('width: ', width)
+	print('Target width: ' , w)
 	v = t/(w/width)# w is how many pixels wide is the object
-	#print v
 	h = 0.5*v/(math.tan(math.radians(d)/2))
-	#now we need to use basic trigo to caculate actually distance, given that he camera is tilted
 	tilt = 30 #the tilt of the camera, in degrees
 	distance = h * (math.cos(math.radians(tilt)))
 	print 'Distance ', distance
-	with open('result', 'w') as f:
-		f.write(str(distance))
+	cv.putText(img, distance, (230, 50), font, 0.8, (0, 255, 0), 2, cv.LINE_AA)
 	return distance
