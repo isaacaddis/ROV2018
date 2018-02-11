@@ -11,10 +11,9 @@ ser.isOpen()
 message = ""
 # while True:
 def ser():
-    try:
-    	# threading.Timer(5.0, ser).start()
-        message = ser.readline()
-        # print(message)
-        return message
-    except KeyboardInterrupt:
-        ser.close()
+        try:
+			message = ser.readline()
+			return message
+		except KeyboardInterrupt:
+			ser.close()
+ser()       

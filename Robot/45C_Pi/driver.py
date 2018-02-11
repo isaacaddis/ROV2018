@@ -1,6 +1,7 @@
 import os
 import htmlPy
 import serial
+import ser
 import time 
 
 from PyQt4 import QtGui
@@ -27,13 +28,7 @@ app.web_app.setMinimumHeight(768)
 app.maximized = True
 
 app.template = ("index.html", {})
-while True:
-	try:
-		message = list(ser.readline())
-		app.evaluate_javascript("process("+message+")")
-	except KeyboardInterrupt:
-		ser.close()
-	time.sleep(1)
+
 #app.window.setWindowIcon(QtGui.QIcon(BASE_DIR + "/static/img/icon.png"))
 
 
@@ -51,3 +46,10 @@ if __name__ == "__main__":
     # The driver file will have to be imported everywhere in back-end.
     # So, always keep app.start() in if __name__ == "__main__" conditional
     app.start()
+	while True:
+		try:
+			message = ser.ser()
+			app.evaluate_javascript("process("+message+")")
+			time.sleep(0.5)
+		except KeyboardInterrupt:
+			ser.close()

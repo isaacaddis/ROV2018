@@ -9,6 +9,7 @@ var tempChart = new CanvasJS.Chart("temperature", {
 	title:{
 		text: "Temperature"
 	},
+	},
 	axisY:{
 		includeZero: false
 	},
