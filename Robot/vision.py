@@ -28,15 +28,12 @@ def processImage():
 	global upper
 	_, image = cap.read()
 	im = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-	#im = cv2.imread("/home/thinkredstone/im.jpg")
 	mask = cv2.inRange(im, lower, upper)
-	#cv2.imwrite("/home/thinkredstone/mask.jpg",mask)
 	contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, 2)
 	cnt = findBiggestContour(contours)
 	x,y,w,h = cv2.boundingRect(cnt)
 	cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
-	#cv2.imwrite("/home/thinkredstone/cnt.jpg",mask)
-	cv2.imwrite("/home/admin/im.jpg",image)
+	cv2.imwrite("/img/im.jpg",image)
 	'''
 	here we use trigonometry to determine the distance from the object, given that 
 	the object is t cm wide and the camera captures d degrees
