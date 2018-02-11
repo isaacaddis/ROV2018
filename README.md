@@ -2,7 +2,7 @@
 
 This repository features the code for 45C Robotics' entire electronic system in the 2017-18 MATE Robotics Competition. 
 
-For more information about our team, visit [http://www.camsrov.com](camsrov.com)
+For more information about our team, visit [www.camsrov.com](http://camsrov.com)
 
 ## DRIVER INFORMATION
 
