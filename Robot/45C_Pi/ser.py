@@ -14,6 +14,5 @@ def ser():
         try:
 			message = ser.readline()
 			return message
-		except KeyboardInterrupt:
-			ser.close()
-ser()       
+		catch:
+			print("Did not read a message")      
