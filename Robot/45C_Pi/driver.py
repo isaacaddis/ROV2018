@@ -35,7 +35,7 @@ if __name__ == "__main__":
     app.start()
 	while True:
 		try:
-			message = ser.ser()
+			message = ser.readline()
 			app.evaluate_javascript("process("+message+")")
 			time.sleep(0.5)
 		except KeyboardInterrupt:
