@@ -25,7 +25,7 @@ All relevant and necessary data is on the GUI!
 
 ## DEVELOPER INFORMATION
 
-## Graphical User Interface
+## GRAPHICAL USER INTERFACE
 
 ```
 	$ (sudo) driver.py
@@ -33,6 +33,6 @@ All relevant and necessary data is on the GUI!
 
 45c uses the [HTMLPy](http://htmlpy.readthedocs.io/en/master/) library for developing our GUI. All code is written in Python. 
 
-## Cameras
+## CAMERAS
 
 45c uses [OpenCV](https://opencv.org/)  for vision processing. 
