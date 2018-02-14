@@ -2,7 +2,7 @@
 
 This repository features the code for 45C Robotics' entire electronic system in the 2017-18 MATE Robotics Competition. 
 
-For more information about our team, visit [www.camsrov.com](http://camsrov.com)
+For more information about our team, please visit [camsrov.com](http://camsrov.com).
 
 ## DRIVER INFORMATION
 
@@ -16,9 +16,25 @@ To drive:
 ### ARTICULATION
 
 ```
-Follow the labels on the GUI! ($ [sudo] python driver.py)
-Articulation we have right now:
+All relevant and necessary data is on the GUI!
+
   Claw
-  Temperature sensor
-  Two cameras
+  Temperature sensor (x2)
+  Two cameras - one forward, one bottom
 ```
+
+## DEVELOPER INFORMATION
+
+### Graphical User Interface
+
+Run:
+
+```
+	$ (sudo) driver.py
+```
+
+45c uses the [HTMLPy](http://htmlpy.readthedocs.io/en/master/) library for developing our GUI. All code is written in Python. 
+
+### Cameras
+
+45c uses (OpenCV)[https://opencv.org/]  for vision processing. 
