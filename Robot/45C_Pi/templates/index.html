@@ -1,48 +1,46 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-	<link rel="stylesheet" href="{{ 'css/bulma.min.css'|staticfile }}"> 
-
-	<link rel="stylesheet" href="{{ 'css/font-awesome.min.css'|staticfile }}"> 
-	
-	<title>2018 45C Robotics</title>
-</head>
-<body>
-		<nav class=" navbar is-link is-transparent  role navigation" aria-label="main navigation">
-		  <div class="navbar-brand">
-		    <a class="navbar-item" href="">
-		      45C Robotics
-		    </a>
-		    <div class="navbar-end">
-		    	<a class="navbar-item">
-		    		Temp: <span id="temp"></span>
-		    	</a>
-		    	<a class="navbar-item">
-		    		Voltage: <span id = "volt"></span>
-		    	</a>
-		    </div>
-		  </div>
-		</nav>
-	  <section class="Aligner " style = "height:100vh">
-	    <div class="is-grouped">
-	     	<div class="row  Aligner-item">
-				<a class=" button is-link is-large is-rounded" style = "" href = "preop.html">Pre-Operation</a>
-	    </div>
-	      <br>
-	    <div class = "Aligner-item">
-				<a class=" is-rounded button is-large is-primary" style = "" href = "op.html">Pilot Control</a>
-		</div>       
-	    </div>
-
-	  </section>
-	<script src="{{ 'js/jquery.min.js'|staticfile }}"></script>
-
-	<script src="{{ 'js/canvas.min.js'|staticfile }}"></script>
-
-	<script src="{{ 'js/timer.js'|staticfile }}"></script>
-
-	<script src="{{ 'js/script.js'|staticfile }}"></script> 
-
-
-</body>
+    <head>
+        <link rel="stylesheet" href="{{ 'css/bulma.min.css'|staticfile }}">
+        <link rel="stylesheet" href="{{ 'css/font-awesome.min.css'|staticfile }}">
+        <title>2018 45C Robotics</title>
+    </head>
+    <body>
+        <nav class=" navbar is-link is-transparent  role navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="">
+                45C Robotics
+                </a>
+                <div class="navbar-end">
+                    <a class="navbar-item">
+                    Temp 1: <span id="temp"></span>
+                    </a>
+                    <a class="navbar-item">
+                    Temp 2: <span id="temp2"></span>
+                    </a>
+                    <a class="navbar-item">
+                    Voltage 1: <span id="volt"></span>
+                    </a>
+                    <a class="navbar-item">
+                    Voltage 2: <span id = "volt2"></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <section class="Aligner " style = "height:100vh">
+            <div class="is-grouped">
+                <div class="row  Aligner-item">
+                    <a class=" button is-link is-large is-rounded" style = "" href = "preop.html">Pre-Operation</a>
+                </div>
+                <br>
+                <div class = "Aligner-item">
+                    <a class=" is-rounded button is-large is-primary" style = "" href = "op.html">Pilot Control</a>
+                </div>
+            </div>
+        </section>
+        <script src="{{ 'js/jquery.min.js'|staticfile }}"></script>
+        <script src="{{ 'js/canvas.min.js'|staticfile }}"></script>
+        <script src="{{ 'js/timer.js'|staticfile }}"></script>
+        <script src="{{ 'js/script.js'|staticfile }}"></script> 
+    </body>
 </html>
