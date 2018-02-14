@@ -5,87 +5,36 @@
 
 	<link rel="stylesheet" href="{{ 'css/font-awesome.min.css'|staticfile }}"> 
 	
-	<style type="text/css">
-
-	</style>
 	<title>2018 45C Robotics</title>
 </head>
 <body>
-	<section class="hero is-primary">
-	  <div class="hero-body">
-	    <div class="container">
-	    	<img src="{{ 'Logo_BlackText.png'|staticfile }}" style = "height:300px;width:100%">
-	      <nav class="columns">
-	        <a class="column has-text-centered" href="http://bulma.io/documentation/overview/responsiveness/">
-	          <span class="icon is-large" style="margin-right: 10px;">
-	            <i class="fa fa-medkit"></i>
-	          </span>
-	          <p class="title is-4"><strong>System: </span></strong></p>
-	          <p class="subtitle"><span id = "systemStatus"></span></p>
-	        </a>
-	        <a class="column has-text-centered" href="http://bulma.io/documentation/overview/modular/">
-	          <span class="icon is-large">
-	            <i class="fa fa-bolt"></i>
-	          </span>
-	          <p class="title is-4"><strong>Voltage:</strong></p>
-	          <p class="subtitle"><span></span></p>
-	        </a>
-	        <a class="column has-text-centered" href="http://bulma.io/documentation/overview/modular/">
-	          <span class="icon is-large">
-	            <i class="fa fa-bolt"></i>
-	          </span>
-	          <p class="title is-4"><strong>Temperature:</strong></p>
-	          <p class="subtitle"><span id = "currentTemp"></span></p>
-	        </a>
-	        <a class="column has-text-centered" >
-	          <span class="icon is-large">
-	            <i class="fa fa-hand-o-up"></i>
-	          </span>
-	          <p class="title is-4"><strong>Claw State:</strong></p>
-	          <p class="subtitle"><span id="clawState"></span></p>
-	        </a>
-	        <a class="column has-text-centered" >
-	          <span class="icon is-large">
-	            <i class="fa fa-search"></i>
-	          </span>
-	          <p class="title is-4"><strong>Security State:</strong></p>
-	          <p class="subtitle"><span id="systemState"></span></p>
-	        </a>
-	        <a class="column has-text-centered" >
-	          <span class="icon is-large">
-	            <i class="fa fa-hourglass"></i>
-	          </span>
-	          <p class="title is-4">Timer:</p>
-	          <p class="subtitle">
-	          	    	<h1 class=""><strong><span class="timer"></span></strong></h1>
-	          	    	<i class=" play fa fa-play-circle"></i>
-	          	    	<i class=" pause fa fa-pause"></i>
-	          	    	<i class=" stop fa fa-stop"></i>
-			</p>
-	        </a>
-	      </nav>
+		<nav class=" navbar is-link is-transparent  role navigation" aria-label="main navigation">
+		  <div class="navbar-brand">
+		    <a class="navbar-item" href="">
+		      45C Robotics
+		    </a>
+		    <div class="navbar-end">
+		    	<a class="navbar-item">
+		    		Temp: <span id="temp"></span>
+		    	</a>
+		    	<a class="navbar-item">
+		    		Voltage: <span id = "volt"></span>
+		    	</a>
+		    </div>
+		  </div>
+		</nav>
+	  <section class="Aligner " style = "height:100vh">
+	    <div class="is-grouped">
+	     	<div class="row  Aligner-item">
+				<a class=" button is-link is-large is-rounded" style = "" href = "preop.html">Pre-Operation</a>
 	    </div>
-	  </div>
-	</section>
-	<div class="container center">
-		<div class="columns">
-			<div class="column">
-				<div class="card">
-					<div id="temperature" style="height: 370px; width: 100%;"></div>
-				</div>
-			</div>\
-			<div class="column">
-				<div class="card">
-					<div id="camera" style="height: 370px;"></div>
-				</div>
-			</div>
-			<div class="column">
-				<div class="card">
-					<div id="voltage" style="height: 370px; width: 100%;"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+	      <br>
+	    <div class = "Aligner-item">
+				<a class=" is-rounded button is-large is-primary" style = "" href = "op.html">Pilot Control</a>
+		</div>       
+	    </div>
+
+	  </section>
 	<script src="{{ 'js/jquery.min.js'|staticfile }}"></script>
 
 	<script src="{{ 'js/canvas.min.js'|staticfile }}"></script>
