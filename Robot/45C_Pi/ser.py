@@ -14,7 +14,7 @@ ser.isOpen()
 '''	
 while True:
 	try:
-		message = ser.readline().decode('utf-8)	
+		message = ser.readline().decode('utf-8')	
 		app.evaluate_javascript("process("+String(message)+")")
 	catch:
 		print("There was an error!")
