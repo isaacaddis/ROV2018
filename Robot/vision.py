@@ -1,7 +1,14 @@
 import cv2
 import numpy as np
 import math
+import RPi.GPIO as GPIO
+import time
 from time import sleep
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+font = FONT_HERSHEY_COMPLEX;
 
 def findBiggestContour(cnt):
 	max = cv2.contourArea(cnt[0])
@@ -11,13 +18,18 @@ def findBiggestContour(cnt):
 			maxContour = i
 			max = cv2.contourArea(i)
 	return maxContour
-    
+while True:
+	# First mode
+	if GPIO.input(18):
+		
+	elif GPIO.input(19):
+		
 #get camera stream
 cap = cv2.VideoCapture(0)
 (lower,upper) = ([int(165/2), int(0*255), int(0.4*255)], [int(175/2), int(1*255), int(1*255)]) #Define the boundries 
 lower = np.array(lower)
 upper = np.array(upper)
-font = FONT_HERSHEY_COMPLEX;
+
 
 '''
 with this, we get an image from cap, make a mask out of it with inRange,
