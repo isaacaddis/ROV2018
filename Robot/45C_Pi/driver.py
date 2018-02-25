@@ -1,7 +1,6 @@
 import os
 import htmlPy
 import serial
-import ser
 import time 
 
 from PyQt4 import QtGui

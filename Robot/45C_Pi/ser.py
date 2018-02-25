@@ -15,7 +15,7 @@ ser.isOpen()
 while True:
 	try:
 		message = ser.readline().decode('utf-8')	
-		app.evaluate_javascript("process("+String(message)+")")
+		app.evaluate_javascript("process("+str(message)+")")
 	except KeyboardInterrupt:
 		print("There was an error!")		
 		ser.close()
