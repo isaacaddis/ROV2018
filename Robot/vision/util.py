@@ -1,3 +1,5 @@
+import cv2
+
 def getArea(con): # Gets the area of the contour
     return cv2.contourArea(con)
 
@@ -16,10 +18,4 @@ def sortByArea(conts) : # Returns an array sorted by area from smallest to large
     sortedBy = sorted(conts, key=getArea) # sortedBy now has all the contours sorted by area
     return sortedBy
 def findBiggestContour(cnt):
-    max = cv2.contourArea(cnt[0])
-    maxContour = cnt[0]
-    for i in cnt:
-        if cv2.contourArea(i) > max:
-            maxContour = i
-            max = cv2.contourArea(i)
-    return maxContour
+    return max(cnt, key = cv2.contourArea)

@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 import util
 back = cv2.VideoCapture(1)
-cv2.namedWindow("45C Robotics", cv2.WND_PROP_FULLSCREEN)
-cv2.setWindowProperty("45C Robotics",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
+#cv2.namedWindow("45C Robotics", cv2.WND_PROP_FULLSCREEN)
+#cv2.setWindowProperty("45C Robotics",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
 def run():
 	ret, frame = back.read()
 	kernel = np.ones((5,5), np.uint8)
