@@ -34,5 +34,3 @@ while True:
 		if GPIO.input(18):
 			backCam.kill()
 			state ^= 1
-cap.release()
-cv2.destroyAllWindows()
