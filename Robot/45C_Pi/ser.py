@@ -6,7 +6,7 @@ import serial
 from driver import app
 
 #Start serial coms
-ser = serial.Serial('/dev/ttyAMA0',9600,timeout=1)
+ser = serial.Serial('/dev/ttyUSB0',9600,timeout=1)
 ser.isOpen()
 
 '''
@@ -16,7 +16,6 @@ while True:
 	try:
 		message = ser.readline().decode('utf-8')	
 		app.evaluate_javascript("process("+String(message)+")")
-	catch:
-		print("There was an error!")
 	except KeyboardInterrupt:
+		print("There was an error!")		
 		ser.close()
