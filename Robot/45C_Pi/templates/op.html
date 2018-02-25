@@ -12,8 +12,37 @@
 		<title>2018 45C Robotics</title>
 	</head>
 	<body>
-
-
+		<nav class=" navbar is-link is-transparent  role navigation" aria-label="main navigation">
+		    <div class="navbar-brand">
+		        <a class="navbar-brand navbar-item" href="">
+		        45C Robotics
+		        </a>
+		        <div class="navbar-end">
+		            <a class="navbar-item">
+		            Temp 1: <span id="temp"></span>
+		            </a>
+		            <a class="navbar-item">
+		            Temp 2: <span id="temp2"></span>
+		            </a>
+		            <a class="navbar-item">
+		            Voltage 1: <span id="volt"></span>
+		            </a>
+		            <a class="navbar-item">
+		            Voltage 2: <span id = "volt2"></span>
+		            </a>
+		            <a class="navbar-item">
+		            	Timer: <span id="timer"></span>
+		            	<span id="countdown">15:00:00</span>
+		            	<form id="example2form">
+		            	    <input class='button is-link' type='button' value='Play/Pause' onclick='timey.Timer.toggle();' />
+		            	    <input class='button is-primary' type='button' value='Stop/Reset' onclick='timey.resetCountdown();' />
+		            	    <input type='text' name='startTime' value='300' style='width:30px;' />
+		            	</form>
+		            </a>
+		        </div>
+		    </div>
+		</nav>
+		<!-- -->
 		<script src="{{ 'js/jquery.min.js'|staticfile }}"></script>
 
 		<script src="{{ 'js/canvas.min.js'|staticfile }}"></script>

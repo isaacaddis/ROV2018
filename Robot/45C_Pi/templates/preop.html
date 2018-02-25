@@ -12,21 +12,48 @@
 	<title>2018 45C Robotics</title>
 </head>
 <body>
-	<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-	  <div class="navbar-brand">
-	    <a class="navbar-item" href="">
-	      45C Robotics
-	    </a>
-	    <div class="navbar-end">
-	    	<a class="navbar-item">
-	    		Temp: <span id="temp"></span>
-	    	</a>
-	    	<a class="navbar-item">
-	    		Voltage: <span id = "volt"></span>
-	    	</a>
+	<nav class=" navbar is-link is-transparent  role navigation" aria-label="main navigation">
+	    <div class="navbar-brand">
+	        <a class="navbar-brand navbar-item" href="">
+	        45C Robotics
+	        </a>
+	        <div class="navbar-end">
+	            <a class="navbar-item">
+	            Temp 1: <span id="temp"></span>
+	            </a>
+	            <a class="navbar-item">
+	            Temp 2: <span id="temp2"></span>
+	            </a>
+	            <a class="navbar-item">
+	            Voltage 1: <span id="volt"></span>
+	            </a>
+	            <a class="navbar-item">
+	            Voltage 2: <span id = "volt2"></span>
+	            </a>
+	        </div>
 	    </div>
-	  </div>
 	</nav>
+	<section class="Aligner " style = "height:100vh">
+	    <div class="">
+	        <div class = "Aligner-item" id = "checklist">
+	        	<p class="menu-label">
+	        	  Pre-Operation Checklist
+	        	</p>
+	        	<ul class="menu-list">
+	        	  <li>
+	        	    <a class="is-active">Building an ocean bottom seismometer (OBS)</a>
+	        	    <ul>
+	        	      <li><a>Cable with connector</a></li>
+	        	      <li><a>Anchor</a></li>
+	        	      <li><a>Release mechanism</a></li>
+	        	    </ul>
+	        	  </li>
+	        	</ul>
+	        </div>
+	    </div>
+	</section>
+
+	<!-- building an ocean bottom seismometer (OBS), cable with connector, anchor, and release mechanism as per specifications outlined below.  The OBS, connector, anchor, and release will be deployed by divers before the product demonstration run – 20 points   -->
 	<script src="{{ 'js/jquery.min.js'|staticfile }}"></script>
 
 	<script src="{{ 'js/canvas.min.js'|staticfile }}"></script>
