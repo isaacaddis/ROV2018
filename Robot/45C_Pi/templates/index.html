@@ -6,46 +6,48 @@
         <title>2018 45C Robotics</title>
     </head>
     <body>
-        <nav class=" navbar is-link is-transparent  role navigation" aria-label="main navigation">
+        <nav class=" navbar is-info  role navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-brand navbar-item" href="">
                 45C Robotics
                 </a>
                 <div class="navbar-end">
-                    <a class="navbar-item">
+                    <a class="navbar-item" style = "color:white" >
                     Temp 1: <span id="temp"></span>
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item" style = "color:white" >
                     Temp 2: <span id="temp2"></span>
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item" style = "color:white">
                     Voltage 1: <span id="volt"></span>
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item" style = "color:white">
                     Voltage 2: <span id = "volt2"></span>
                     </a>
+					<a class = "navbar-item" style = "color:white" ><strong>System Status:</strong>
+						<span id="state"></span>
+					</a>                    
                 </div>
             </div>
         </nav>
-        <nav class=" navbar is-white is-transparent">
-            <div class="navbar-brand">
-                <h3 class="title is-3">System Status:
-                    <span id="state"></span>
-                </h3>
-            </div>
-        </nav>
+
         <section class="Aligner " style = "height:100vh">
             <div class="is-grouped">
+				<center>
+				<!--
                 <div class = "Aligner-item">
-                    <h1 class="title is-4">Welcome.</h1>
+                    <p>Welcome.</p>
                 </div>
+                -->
+                <br><br>
                 <div class="row  Aligner-item">
-                    <a class=" button is-link is-large is-rounded" style = "" href="{{ 'preop.html'|staticfile }}">Pre-Operation</a>
+                    <a class=" button is-primary is-large is-rounded" style = "color:white; text-decoration:none" href="preop.html">Pre-Operation</a>
                 </div>
                 <br>
                 <div class = "Aligner-item">
-                    <a class=" is-rounded button is-large is-primary" style = "" href="{{ 'op.html'|staticfile }}">Pilot Control</a>
+                    <a class=" is-rounded button is-large is-warning" style = "color:white; text-decoration:none" href="op.html">Pilot Control</a>
                 </div>
+				</center>                
             </div>
         </section>
         <script src="{{ 'js/jquery.min.js'|staticfile }}"></script>
