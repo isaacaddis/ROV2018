@@ -27,12 +27,17 @@ All relevant and necessary data is on the GUI!
 
 ### GRAPHICAL USER INTERFACE
 
+To run the GUI, change your directory over to /Robot/45C_Pi and run:
+
+
 ```
 	$ (sudo) driver.py
 ```
 
-45c uses the [HTMLPy](http://htmlpy.readthedocs.io/en/master/) library for developing our GUI. All code is written in Python. 
+45c uses the [HTMLPy](http://htmlpy.readthedocs.io/en/master/) library for developing our GUI. 
 
 ### CAMERAS
 
 45c uses [OpenCV](https://opencv.org/)  for vision processing. 
+
+Our vision code is wrapped through a custom-made GUI made, using the **PyQt4** python module. 

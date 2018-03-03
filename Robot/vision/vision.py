@@ -43,19 +43,18 @@ class MainApp(QtGui.QWidget):
         self.setWindowTitle('45c')
         self.show()
     def initCam(self):
-		self.capture = cv2.VideoCapture(0)
-		self.capture.set(cv2.CV_CAP_FRAME_WIDTH,self.video_size.width())
-		self.capture.set(cv2.CV_CAP_PROP_FRAME_HEIGHT,self.video_size.height())
-		self.timer=QTimer()
-		self.timer.timeout.connect(self.display_video_stream)
-		self.timer.start(30)
+    	self.capture = cv2.VideoCapture(0)
+        self.capture.set(cv2.CV_CAP_FRAME_WIDTH,self.video_size.width())
+        self.capture.set(cv2.CV_CAP_PROP_FRAME_HEIGHT,self.video_size.height())
+    	self.timer=QTimer()
+        self.timer.timeout.connect(self.display_video_stream)
+    	self.timer.start(30)
     def vis(self):
         _,frame = self.capture.read()
         frame = cv2.cvtColor(frame, cv2.cv.CV_BGR2RGB)
         frame = cv2.flip(frame,1)
         image = QImage(frame,frame.shape[1], frame.shape[0], frame.strides[0], QImage.Format_RGB888)
         self.image_label.setPixmap(QPixmap.fromImage(image)
-
 def main():
     app = QApplication(sys.argv)
     win = MainApp()
