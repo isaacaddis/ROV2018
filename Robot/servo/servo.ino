@@ -1,29 +1,29 @@
 /**
  * @author Jiajer Ho (jh10422)
- * ROV Servo Claw 2.0
+ * ROV Servo Claw 3.0 for 45C CAMS ROV 2018
 */
-// Use 1K Ohm resistor
-// Opens when button pressed, close when button not pressed
 
 #include <Servo.h>
-int button1 = 4; //button pin, connect to ground to move servo
+int button1 = 8;
+int button2 = 9;
 int press1 = 0;
+int press2 = 0;
 Servo servo1;
-Servo myservo;  // create servo object to control a servo
+Servo servo2; 
 
-int potpin = 0;  // analog pin used to connect the potentiometer
-int val;    // variable to read the value from the analog pin
+int potpin = 0;  
+int val;   
 void setup()
 {
  pinMode(button1, INPUT);
- servo1.attach(7);
-   myservo.attach(9);  // attaches the servo on pin 9 to the servo object
- digitalWrite(4, HIGH); //enable pullups to make pin high
+ servo1.attach(0);
+ servo2.attach(1);  
+ digitalWrite(4, HIGH); 
 }
 
 void loop()
 {
- press1 = digitalRead(button1);
+press1 = digitalRead(button1);
  if (press1 == LOW)
  {
    servo1.write(180);
@@ -31,9 +31,12 @@ void loop()
  else {
    servo1.write(0);
  }
-   val = analogRead(potpin);            // reads the value of the potentiometer (value between 0 and 1023)
-  val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
-  myservo.write(val);                  // sets the servo position according to the scaled value
-
+press2 = digitalRead(button2);
+ if (press2 == LOW)
+ {
+   servo2.write(180);
+ }
+ else {
+   servo2.write(0);
+ }
 }
-
