@@ -31,8 +31,8 @@ class MainApp(QtGui.QWidget):
         self.initUI()
         self.initCam()
     def initUI(self):
-        exitButton = Qt.Gui.QPushButton("OK")
-        hbox = QtGui.QHboxLayout()
+        exitButton = QtGui.QPushButton("OK")
+        hbox = QtGui.QHBoxLayout()
         hbox.addStretch(1)
         hbox.addWidget(exitButton) 
         vbox = QtGui.QVBoxLayout()
@@ -44,25 +44,28 @@ class MainApp(QtGui.QWidget):
         self.show()
     def initCam(self):
     	self.capture = cv2.VideoCapture(0)
-        self.capture.set(cv2.CV_CAP_FRAME_WIDTH,self.video_size.width())
-        self.capture.set(cv2.CV_CAP_PROP_FRAME_HEIGHT,self.video_size.height())
-    	self.timer=QTimer()
-        self.timer.timeout.connect(self.display_video_stream)
+    	if hasattr(cv2,'cv'):
+			self.capture.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 640)
+			self.capture.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 480)
+        else:
+			self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+			self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+		
+    	self.timer=QtCore.QTimer(self)
+        self.timer.timeout.connect(self.vis)
+        #30 fps
     	self.timer.start(30)
     def vis(self):
         _,frame = self.capture.read()
         frame = cv2.cvtColor(frame, cv2.cv.CV_BGR2RGB)
         frame = cv2.flip(frame,1)
         image = QImage(frame,frame.shape[1], frame.shape[0], frame.strides[0], QImage.Format_RGB888)
-        self.image_label.setPixmap(QPixmap.fromImage(image)
-def main():
-    app = QApplication(sys.argv)
-    win = MainApp()
-    win.show()
-    sys.exit(app.exec_())	
+        self.image_label.setPixmap(QPixmap.fromImage(image))
 if __name__ == "__main__":
-	main()
-	
+	app = QtGui.QApplication(sys.argv)
+	win = MainApp()
+	win.show()
+	sys.exit(app.exec_())		
 '''
 while True:
 	#Default (State 1) - Front Camera
