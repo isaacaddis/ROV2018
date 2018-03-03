@@ -50,14 +50,13 @@ class MainApp(QtGui.QWidget):
         else:
 			self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 			self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-		
     	self.timer=QtCore.QTimer(self)
         self.timer.timeout.connect(self.vis)
         #30 fps
     	self.timer.start(30)
     def vis(self):
         _,frame = self.capture.read()
-        frame = cv2.cvtColor(frame, cv2.cv.CV_BGR2RGB)
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
         frame = cv2.flip(frame,1)
         image = QImage(frame,frame.shape[1], frame.shape[0], frame.strides[0], QImage.Format_RGB888)
         self.image_label.setPixmap(QPixmap.fromImage(image))
