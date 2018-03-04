@@ -1,13 +1,8 @@
-# coding=utf-8
 import cv2
 import numpy as np
-import math
 import qdarkstyle
 import RPi.GPIO as GPIO
 from time import sleep
-import util
-import frontCam
-import backCam
 import sys
 from PyQt4 import QtGui
 from PyQt4 import QtCore
@@ -72,13 +67,12 @@ class MainApp(QtGui.QWidget):
     	'''
     		Vertical Distance mayn
     	'''
-		ret, frame = self.capture.read()
-		kernel = np.ones((5,5), np.uint8)
-		img = cv2.Canny(frame, 50, 100)
-		img = cv2.dilate(img, kernel, iterations=1)	
-		img = cv2.erode(img, kernel, iterations=1)
-		_, cnts, _ = cv2.findContours(img.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
-		if state == 1:
+    	ret, frame = self.capture.read()
+    	kernel = np.ones((5,5), np.uint8)
+    	img = cv2.erode(frame, kernel, iterations=1)
+    	img = cv2.dilate(img, kernel, iterations=1)	
+    	_, cnts, _ = cv2.findContours(img.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    	if state == 1:
 			for c in cnts:
 				# If contours are too small or large, ignore them:
 				if cv2.contourArea(c)<100:
@@ -104,9 +98,9 @@ class MainApp(QtGui.QWidget):
 						2.0, (0, 255, 0), 3)
 		        image = QImage(img,img.shape[1], img.shape[0], img.strides[0], QImage.Format_RGB888)
 		        self.image_label.setPixmap(QPixmap.fromImage(image))
-		'''
+		        '''
 			Horizontal Distance Task
-		'''
+		
 		ret, frame = self.capture2.read()
 		kernel = np.ones((5,5), np.uint8)
 		img = cv2.Canny(frame, 50, 100)
@@ -114,6 +108,7 @@ class MainApp(QtGui.QWidget):
 		img = cv2.erode(img, kernel, iterations=1)
 		image = QImage(img,img.shape[1], img.shape[0], img.strides[0], QImage.Format_RGB888)
 		self.image_label.setPixmap(QPixmap.fromImage(image))
+		'''
 if __name__ == "__main__":
 	app = QtGui.QApplication(sys.argv)
 	#Styling
