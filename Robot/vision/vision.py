@@ -48,17 +48,17 @@ class MainApp(QtGui.QWidget):
     	Capture
     	'''
     	self.capture = cv2.VideoCapture(0)
-    	self.capture2 = cv2.VideoCapture(1)
+    	#self.capture2 = cv2.VideoCapture(1)
     	if hasattr(cv2,'cv'):
 			self.capture.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 640)
-			self.capture2.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 640)
+			#self.capture2.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 640)
 			self.capture.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 480)
-			self.capture2.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 480)
+			#self.capture2.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 480)
         else:
 			self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-			self.capture2.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+			#self.capture2.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 			self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-			self.capture2.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+			#self.capture2.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     	self.timer=QtCore.QTimer(self)
         self.timer.timeout.connect(self.vis)
         #30 fps
