@@ -1,7 +1,11 @@
 import cv2
 import numpy as np
 import util
-cap = cv2.VideoCapture(0)
+i=0
+while i<4:
+    cap = cv2.VideoCapture(1)
+    cap.set(cv2.CAP_PROP_CONVERT_RGB, True)
+    i+=1
 #cv2.namedWindow("45C Robotics", cv2.WND_PROP_FULLSCREEN)
 #cv2.setWindowProperty("45C Robotics",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
 centers = []
@@ -32,8 +36,8 @@ def run():
 				dy = centers[0][1] - centers[1][1]
 				D = np.sqrt(dx*dx+dy*dy)
 				print(D)
-		cv2.imshow("45C Robotics", img)
-		cv2.waitKey(0)
+		cv2.imshow("45C Robotics", cv2.imdecode(img,-1))
+		cv2.waitKey(30)
 def kill():
 	cap.release()
 	cv2.destroyAllWindows()
