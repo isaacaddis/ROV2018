@@ -32,18 +32,32 @@ class MainApp(QtGui.QWidget):
         self.initUI()
         self.initCam()
 	self.vis()
+    '''
+    	Start app layout
+    '''
     def initUI(self):
-        exitButton = QtGui.QPushButton("OK")
+        exitButton = QtGui.QPushButton("Close App")
         hbox = QtGui.QHBoxLayout()
         hbox.addStretch(1)
-        hbox.addWidget(exitButton) 
+        hbox.addWidget(exitButton)
+	self.exitButton.triggered.connect(self.closeApplication)
         vbox = QtGui.QVBoxLayout()
         vbox.addStretch(1)
         vbox.addLayout(hbox)
         self.setLayout(vbox)
         self.showFullScreen()
-        self.setWindowTitle('45c')
+        self.setWindowTitle('45c Robotics')
         self.show()
+    '''
+    Close App
+    '''
+    def closeApplication():
+	choice = QtGui.QMessageBox.question(self, 'Message','Do you really want to exit?',QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
+	if choice == QtGui.QMessageBox.Yes:
+	    print("Exiting application")
+	    sys.exit()
+	else:
+            pass
     def initCam(self):
     	'''
     	Capture
