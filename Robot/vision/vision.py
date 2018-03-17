@@ -31,6 +31,7 @@ class MainApp(QtGui.QWidget):
         super(MainApp,self).__init__()
         self.initUI()
         self.initCam()
+	self.vis()
     def initUI(self):
         exitButton = QtGui.QPushButton("OK")
         hbox = QtGui.QHBoxLayout()
