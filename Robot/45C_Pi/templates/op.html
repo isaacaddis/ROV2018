@@ -32,12 +32,12 @@
 		            </a>
 		            <a class="navbar-item">
 		            	Timer: <span id="timer"></span>
-		            	<span id="countdown">15:00:00</span>
-		            	<form id="example2form">
-		            	    <input class='button is-warning' type='button' value='Play/Pause' onclick='timey.Timer.toggle();' />
-		            	    <input class='button is-danger' type='button' value='Stop/Reset' onclick='timey.resetCountdown();' />
-		            	    <input type='text' name='startTime' value='300' style='width:30px;' />
-		            	</form>
+						<span id="countdown">15:00:00</span>
+						<form id="example2form">
+						  <input type='button' value='Play/Pause' onclick='Example2.Timer.toggle();' />
+						  <input type='button' value='Stop/Reset' onclick='Example2.resetCountdown();' />
+						  <input type='text' name='startTime' value='300' style='width:30px;' />
+						</form>
 		            </a>
 		        </div>
 		    </div>
@@ -81,9 +81,59 @@
 
 		<script src="{{ 'js/canvas.min.js'|staticfile }}"></script>
 
-		<script src="{{ 'js/timer.js'|staticfile }}"></script>
+		<script src="{{ 'js/jquery.timer.js'|staticfile }}"></script>
 
 		<script src="{{ 'js/script.js'|staticfile }}"></script> 
+		<script src="{{ 'js/opControl.js'|staticfile }}"></script> 
 
+		<script>
+		// Common functions
+		function pad(number, length) {
+			var str = '' + number;
+			while (str.length < length) {str = '0' + str;}
+			return str;
+		}
+		function formatTime(time) {
+		var min = parseInt(time / 6000),
+			sec = parseInt(time / 100) - (min * 60),
+			hundredths = pad(time - (sec * 100) - (min * 6000), 2);
+		return (min > 0 ? pad(min, 2) : "00") + ":" + pad(sec, 2) + ":" + hundredths;
+		}	
+		var Example2 = new (function() {
+			var $countdown,
+				$form, // Form used to change the countdown time
+				incrementTime = 70,
+				currentTime = 30000,
+				updateTimer = function() {
+					$countdown.html(formatTime(currentTime));
+					if (currentTime == 0) {
+						Example2.Timer.stop();
+						timerComplete();
+						Example2.resetCountdown();
+						return;
+					}
+					currentTime -= incrementTime / 10;
+					if (currentTime < 0) currentTime = 0;
+				},
+				timerComplete = function() {
+					alert('Example 2: Countdown timer complete!');
+				},
+				init = function() {
+					$countdown = $('#countdown');
+					Example2.Timer = $.timer(updateTimer, incrementTime, true);
+					$form = $('#example2form');
+					$form.bind('submit', function() {
+						Example2.resetCountdown();
+						return false;
+					});
+				};
+			this.resetCountdown = function() {
+				var newTime = parseInt($form.find('input[type=text]').val()) * 100;
+				if (newTime > 0) {currentTime = newTime;}
+				this.Timer.stop().once();
+			};
+			$(init);
+		});
+		</script>
 	</body>
 </html>

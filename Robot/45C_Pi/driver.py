@@ -16,7 +16,7 @@ app.web_app.setMinimumHeight(480)
 
 app.maximized = True
 
-app.template = ("index.html", {})
+app.template = ("op.html", {})
 
 #app.window.setWindowIcon(QtGui.QIcon(BASE_DIR + "/static/img/icon.png"))
 
