@@ -12,7 +12,7 @@
 		<title>2018 45C Robotics</title>
 	</head>
 	<body>
-		<nav class=" navbar is-link is-transparent  role navigation" aria-label="main navigation">
+		<nav class="navbar is-info  role navigation" aria-label="main navigation">
 		    <div class="navbar-brand">
 		        <a class="navbar-brand navbar-item" href="">
 		        45C Robotics
@@ -30,35 +30,46 @@
 		            <a class="navbar-item">
 		            Voltage 2: <span id = "volt2"></span>
 		            </a>
-		            <a class="navbar-item">
-		            	Timer: <span id="timer"></span>
-						<span id="countdown">15:00:00</span>
-						<form id="example2form">
-						  <input type='button' value='Play/Pause' onclick='Example2.Timer.toggle();' />
-						  <input type='button' value='Stop/Reset' onclick='Example2.resetCountdown();' />
-						  <input type='text' name='startTime' value='300' style='width:30px;' />
-						</form>
-		            </a>
 		        </div>
 		    </div>
 		</nav>
+		<br>
+		<center>
+			<h3 class = "title is-3">Operation</h3>
+		</center>
+        <section class="Aligner " style = "">
+			<br>
+			<div class = "is-grouped">
+				
+						<div class="">
+							<center>
+							Timer: <span id="timer"></span>
+							<span id="countdown">15:00:00</span>
+							<form id="example2form">
+							  <input class = " button is-primary is-rounded" type='button' value='Play/Pause' onclick='Example2.Timer.toggle();' />
+							  <input class = " button is-primary is-warning" type='button' value='Stop/Reset' onclick='Example2.resetCountdown();' />
+							</form>
+							</center>
+						</div>
+
+			</div>
+		</section>
 		<!-- Non-pilot and Pilots -->
 		<div class="columns">
-			<div class="column">
-				<aside class="menu">
+			<div class="container column">
 					<p class="menu-label">
 						Non-pilots
 					</p>
-					<ul class="menu-list">
+					<ul class="">
 						<li>Using flight data to determine the search zone for the wreckage</li>
 						<li>Using tidal data and nautical chart to determine the optimum location for a tidal turbine</li>
 						<li>Determining the optimum location</li>
 						<li>Using tidal current data to calculate the maximum possible megawatt generation at this location</li>
 					</ul>
-				</aside>
 			</div>
-			<div class="column">
-				<h5 class="title is-5">Pilot Control</h5>
+			<div class="container column">
+				<h5 class="menu-label">Pilot Control</h5>
+				<ul>
 				<li>On board: Grab 2 eelgrass sample with bottom claw</li>
 				<li>Underwater: Drop 2 eelgrass samples in the drop off grid</li>
 				<li>Underwater: Collect 2 eelgrass samples with bottom claw</li>
@@ -75,6 +86,7 @@
 				<li>Attach front lift bag to engine</li>
 				<li>Inflate lift bag</li>
 				<li>Move lift bags and engine to pool side and retrieve ROV</li>
+				</ul>
 			</div>
 		</div>
 		<script src="{{ 'js/jquery.min.js'|staticfile }}"></script>
@@ -94,16 +106,16 @@
 			return str;
 		}
 		function formatTime(time) {
-		var min = parseInt(time / 6000),
-			sec = parseInt(time / 100) - (min * 60),
-			hundredths = pad(time - (sec * 100) - (min * 6000), 2);
-		return (min > 0 ? pad(min, 2) : "00") + ":" + pad(sec, 2) + ":" + hundredths;
-		}	
+			var min = parseInt(time / 6000),
+				sec = parseInt(time / 100) - (min * 60),
+				hundredths = pad(time - (sec * 100) - (min * 6000), 2);
+			return (min > 0 ? pad(min, 2) : "00") + ":" + pad(sec, 2) + ":" + hundredths;
+		}
 		var Example2 = new (function() {
 			var $countdown,
 				$form, // Form used to change the countdown time
 				incrementTime = 70,
-				currentTime = 30000,
+				currentTime = 90000,
 				updateTimer = function() {
 					$countdown.html(formatTime(currentTime));
 					if (currentTime == 0) {
@@ -116,7 +128,7 @@
 					if (currentTime < 0) currentTime = 0;
 				},
 				timerComplete = function() {
-					alert('Example 2: Countdown timer complete!');
+					alert('Countdown timer complete!');
 				},
 				init = function() {
 					$countdown = $('#countdown');

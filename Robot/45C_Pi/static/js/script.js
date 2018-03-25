@@ -1,4 +1,3 @@
-alert("Working");
 function smartSystem(mode,val){
 	var state = $("#state");
 	//Remove any previous styling
