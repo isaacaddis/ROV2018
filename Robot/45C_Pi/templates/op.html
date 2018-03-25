@@ -14,7 +14,7 @@
 	<body>
 		<nav class="navbar is-info  role navigation" aria-label="main navigation">
 		    <div class="navbar-brand">
-		        <a class="navbar-brand navbar-item" href="">
+		        <a class="navbar-brand navbar-item" href="index.html">
 		        45C Robotics
 		        </a>
 		        <div class="navbar-end">
@@ -140,8 +140,9 @@
 					});
 				};
 			this.resetCountdown = function() {
-				var newTime = parseInt($form.find('input[type=text]').val()) * 100;
-				if (newTime > 0) {currentTime = newTime;}
+				//var newTime = parseInt($form.find('input[type=text]').val()) * 100;
+				//if (newTime > 0) {currentTime = newTime;}
+				currentTime=90000;
 				this.Timer.stop().once();
 			};
 			$(init);
