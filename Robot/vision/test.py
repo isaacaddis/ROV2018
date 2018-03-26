@@ -14,7 +14,7 @@ import os
 
 def vis(mirror=True):
 	#it = 0
-	cap = cv2.VideoCapture(0)
+	cap = cv2.VideoCapture(1)
 	if mirror:
 		while cap.isOpened():
 			#it+=1
@@ -24,7 +24,8 @@ def vis(mirror=True):
 			img = cv2.erode(frame, kernel, iterations=1)
 			img = cv2.dilate(img, kernel, iterations=1)
 			img = cv2.cvtColor( img, cv2.COLOR_RGB2GRAY )
-			img = cv2.bilateralFilter(img, 11, 17, 17)
+			img = cv2.Canny(img,100,200)
+			#img = cv2.bilateralFilter(img, 11, 17, 17)
 			'''img	 = cv2.Canny(img, 30, 200) '''
 			_,cnts, _ = cv2.findContours(img.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 			if len(cnts)>0:
