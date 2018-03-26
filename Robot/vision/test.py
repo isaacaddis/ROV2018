@@ -24,16 +24,24 @@ def vis(mirror=True):
 			img = cv2.GaussianBlur(frame,(5,5),0)
 			img = cv2.erode(img, kernel, iterations=1)
 			img = cv2.dilate(img, kernel, iterations=1)
-			img = cv2.cvtColor( img, cv2.COLOR_RGB2GRAY )
+			img = cv2.cvtColor( img, cv2.COLOR_RGB2GRAY)
 			img = cv2.Canny(img,100,200)
-			#img = cv2.bilateralFilter(img, 11, 17, 17)
-			'''img	 = cv2.Canny(img, 30, 200) '''
+			img = cv2.bilateralFilter(img, 11, 17, 17)
 			_,cnts, _ = cv2.findContours(img.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 			if len(cnts)>0:
+				cntsSorted = sorted(cnts,key=cv2.contourArea,reverse=True)
+				areas = np.array([cv2.contourArea(cnt) for cnt in cnts])
+				cnts1=cntsSorted[0]
+				cnts2=cntsSorted[1]
+				#print(cntsSorted)
 				for c in cnts:
-					cv2.drawContours(frame, [c], 0, (0,255,0), 3)
+					x,y,w,h = cv2.boundingRect(cnts1)
+					cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
+					x,y,w,h = cv2.boundingRect(cnts2)
+					cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
+					#cv2.drawContours(frame, [c], 0, (0,255,0), 3)
 					#For debug
-					print(c)
+					#print(c)
 					#print(it)
 					# If contours are too small or large, ignore them:
 					if cv2.contourArea(c)<100:
@@ -55,8 +63,8 @@ def vis(mirror=True):
 						dy = centers[0][1] - centers[1][1]
 						D = np.sqrt(dx*dx+dy*dy)
 						print(D)
-				cv2.imshow("45c Robotics",frame)
-				if cv2.waitKey(1) & 0xFF == ord('q'):
-					break
+			cv2.imshow("45c Robotics",frame)
+			if cv2.waitKey(1) & 0xFF == ord('q'):
+				break
 				
 vis(mirror=True)
