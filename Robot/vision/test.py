@@ -1,12 +1,12 @@
 import cv2
 import numpy as np
-import qdarkstyle
-import RPi.GPIO as GPIO
+#import qdarkstyle
+#import RPi.GPIO as GPIO
 from time import sleep
 import sys
-from PyQt4 import QtGui
-from PyQt4 import QtCore
-from PyQt4.QtGui import *
+#from PyQt4 import QtGui
+#from PyQt4 import QtCore
+#from PyQt4.QtGui import *
 import os
 
 __author__ = "isaacaddis"
@@ -18,9 +18,9 @@ def vis(mirror=False):
 	'''
 	cap = cv2.VideoCapture(0)
 	while True:
-		ret_val, img = cap.read()
+		ret_val, frame = cap.read()
 		if mirror: 
-			img = cv2.flip(img, 1)
+			img = cv2.flip(frame, 1)
 			kernel = np.ones((5,5), np.uint8)
 			img = cv2.erode(img, kernel, iterations=1)
 			img = cv2.dilate(img, kernel, iterations=1)
@@ -28,9 +28,9 @@ def vis(mirror=False):
 			img = cv2.bilateralFilter(img, 11, 17, 17)
 			'''img	 = cv2.Canny(img, 30, 200) '''
 			_,cnts, _ = cv2.findContours(img.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-			if len(cnts)>0:
+			if len(cnts)==2:
 				for c in cnts:
-					cv2.drawContours(img, [c], 0, (0,255,0), 3)
+					cv2.drawContours(frame, [c], 0, (0,255,0), 3)
 					#For debug
 					print(c)
 					# If contours are too small or large, ignore them:
@@ -53,5 +53,5 @@ def vis(mirror=False):
 						print(D)
 					if cv2.waitKey(1) & 0xFF == ord('q'):
 						break
-					cv2.imshow("45c",img)	
+		cv2.imshow("45c Robotics",frame)	
 vis(mirror=True)
