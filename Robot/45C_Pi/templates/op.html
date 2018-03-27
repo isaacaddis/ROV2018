@@ -130,14 +130,14 @@
 				timerComplete = function() {
 					alert('Countdown timer complete!');
 				},
-				init = function() {
+				init = function() {  
 					$countdown = $('#countdown');
 					Example2.Timer = $.timer(updateTimer, incrementTime, true);
 					$form = $('#example2form');
-					$form.bind('submit', function() {
-						Example2.resetCountdown();
-						return false;
-					});
+					//$form.bind('submit', function() {
+						//Example2.resetCountdown();
+						//return false;
+					//});
 				};
 			this.resetCountdown = function() {
 				//var newTime = parseInt($form.find('input[type=text]').val()) * 100;
