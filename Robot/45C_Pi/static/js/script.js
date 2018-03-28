@@ -56,24 +56,31 @@ function smartSystem(mode,val){
 */
 function process(msg){
 	msg = String(msg);
-	if(msg.includes("T1")){
-		msg = msg.substring(2,msg.length-1);
+	if(msg.match("^T1")){
+		msg = msg.substring(3,msg.length-1);
 		smartSystem("T1",msg);
+		console.log(msg);
 		$('#temp').text(msg);
 	}
-	else if(msg.includes("T2")){
-		msg = msg.substring(2,msg.length-1);
+	else if(msg.match("^T2")){
+		msg = msg.substring(2,msg.length);
 		smartSystem("T2",msg);
+		console.log(msg);
 		$('#temp2').text(msg);
 	}
-	else if(msg.includes("V1")){
-		msg = msg.substring(2,msg.length-1);
+	else if(msg.match("^V1")){
+		msg = msg.substring(2,msg.length);
 		smartSystem("V1",msg);
+		console.log(msg);
 		$('#volt').text(msg);
 	}
-	else if(msg.includes("V2")){
-		msg = msg.substring(2,msg.length-1);
+	else if(msg.match("^V2")){
+		msg = msg.substring(2,msg.length);
 		smartSystem("V2",msg);
+		console.log(msg);
 		$('#volt2').text(msg);
+	}
+	else{
+		console.log("Not a valid parameter");
 	}
 }

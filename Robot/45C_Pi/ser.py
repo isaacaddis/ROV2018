@@ -1,6 +1,6 @@
+
 '''
 	@author isaacaddis
-
 '''
 import serial
 from driver import app
@@ -16,6 +16,7 @@ while True:
 	try:
 		message = ser.readline().decode('utf-8')	
 		app.evaluate_javascript("process("+str(message)+")")
+		print(message)
 	except KeyboardInterrupt:
 		print("There was an error!")		
 		ser.close()
