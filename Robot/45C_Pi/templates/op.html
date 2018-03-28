@@ -18,16 +18,16 @@
 		        45C Robotics
 		        </a>
 		        <div class="navbar-end">
-		            <a class="navbar-item">
+		            <a class="navbar-item" style = "color:white">
 		            Temp 1: <span id="temp"></span>
 		            </a>
-		            <a class="navbar-item">
+		            <a class="navbar-item" style = "color:white">
 		            Temp 2: <span id="temp2"></span>
 		            </a>
-		            <a class="navbar-item">
+		            <a class="navbar-item" style = "color:white">
 		            Voltage 1: <span id="volt"></span>
 		            </a>
-		            <a class="navbar-item">
+		            <a class="navbar-item" style = "color:white">
 		            Voltage 2: <span id = "volt2"></span>
 		            </a>
 		        </div>
@@ -132,7 +132,7 @@
 				},
 				init = function() {
 					$countdown = $('#countdown');
-					Example2.Timer = $.timer(updateTimer, incrementTime, true);
+					Example2.Timer = $.timer(updateTimer, incrementTime, false);
 					$form = $('#example2form');
 					$form.bind('submit', function() {
 						Example2.resetCountdown();
