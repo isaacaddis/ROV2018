@@ -37,13 +37,12 @@ float c1 = 1.009249522e-03, c2 = 2.378405444e-04, c3 = 2.019202697e-07;
    float v2 = v / (r2 / (r1 + r2));
    float v4 = (analogRead(1) * vPow) / 1024.0;
    float v3 = v4 / (r2 / (r1 + r2));
-   Serial.println("V"+v2);
-   Serial.println("T"+Tc);
-   //Serial.println(Tc);
-   //Serial.println("VOLTAGE 02");
-   //Serial.println(v3);
-   //Serial.println("TEMP 02");
-   //Serial.println(Tc2);
+   Serial.println("V1"+String(v2));
+   Serial.println("T1"+String(Tc));
+//   Serial.println(Tc);
+   Serial.println("V2"+String(v3));
+//   Serial.println(v3);
+   Serial.println("T2"+String(Tc2));
+//   Serial.println(Tc2);
       delay(1000);
  }
-
