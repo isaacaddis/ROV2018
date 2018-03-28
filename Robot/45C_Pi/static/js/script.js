@@ -50,37 +50,28 @@ function smartSystem(mode,val){
 		}
 	}
 }
+
 /*
 	@sensor The function displaying serial information on the GUI. 
 	@Param Data coming in from serial.py. 
 */
-function process(msg){
-	msg = String(msg);
-	if(msg.match("^T1")){
-		msg = msg.substring(3,msg.length-1);
-		smartSystem("T1",msg);
-		console.log(msg);
-		$('#temp').text(msg);
+	function t1(msg){
+			smartSystem("T1",msg);
+			console.log(msg);
+			$('#temp').text(msg);
 	}
-	else if(msg.match("^T2")){
-		msg = msg.substring(2,msg.length);
-		smartSystem("T2",msg);
-		console.log(msg);
-		$('#temp2').text(msg);
+	function t2(msg){
+			smartSystem("T2",msg);
+			console.log(msg);
+			$('#temp2').text(msg);
 	}
-	else if(msg.match("^V1")){
-		msg = msg.substring(2,msg.length);
-		smartSystem("V1",msg);
-		console.log(msg);
-		$('#volt').text(msg);
+	function v1(msg){
+			smartSystem("V1",msg);
+			console.log(msg);
+			$('#volt').text(msg);
 	}
-	else if(msg.match("^V2")){
-		msg = msg.substring(2,msg.length);
-		smartSystem("V2",msg);
-		console.log(msg);
-		$('#volt2').text(msg);
+	function v2(msg){
+			smartSystem("V2",msg);
+			console.log(msg);
+			$('#volt2').text(msg);
 	}
-	else{
-		console.log("Not a valid parameter");
-	}
-}

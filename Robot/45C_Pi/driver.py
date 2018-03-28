@@ -18,8 +18,7 @@ app.maximized = True
 
 app.template = ("op.html", {})
 
-#import ser
-#app.bind(ser())
+
 #app.window.setWindowIcon(QtGui.QIcon(BASE_DIR + "/static/img/icon.png"))
 
 if __name__ == "__main__":
