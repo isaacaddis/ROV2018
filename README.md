@@ -10,9 +10,9 @@ For more information about our team, please visit [camsrov.com](http://camsrov.c
 
 To calibrate the camera for conversion from pixels to meters, find the meter/pixel conversion rate using a basic calibration setup.
 
-In Robot/Vision/, execute the calibration.py script, and align a reference object of **known length** aligned perfectly with the **600x600* screen.
+In Robot/Vision/, execute the calibration.py script, and align a reference object of **known length** aligned perfectly with the **600x600** screen.
 
-From there, divide known length by pixel width (600), to find the corresponding conversion rate to the camera. 
+From there, divide known length (in meters, for the MATE competition) by pixel width (600), to find the corresponding conversion rate to the camera. 
 
 ## Graphical User Interfaces
 
