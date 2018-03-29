@@ -4,7 +4,7 @@ This repository features the code for 45C Robotics' entire electronic system in 
 
 For more information about our team, please visit [camsrov.com](http://camsrov.com).
 
-# Developers
+# Developer Information
 
 ## Calibration
 

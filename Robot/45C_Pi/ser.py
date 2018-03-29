@@ -2,6 +2,7 @@
 '''
 	@author isaacaddis
 '''
+import time
 import serial
 from driver import app
 
@@ -30,7 +31,8 @@ while True:
 		elif msg.startswith('V2'):
 			message = msg[2:]
 			print(message)
-			app.evaluate_javascript("v2("+message+");")		
+			app.evaluate_javascript("v2("+message+");")
+		range(10000) and None; time.sleep(0.02)		
 	except KeyboardInterrupt:
 		print("There was an error!")		
 		ser.close()

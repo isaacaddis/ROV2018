@@ -1,3 +1,6 @@
+/*
+	Javascript-backed SmartSystem
+*/
 function smartSystem(mode,val){
 	var state = $("#state");
 	//Remove any previous styling
@@ -52,8 +55,8 @@ function smartSystem(mode,val){
 }
 
 /*
-	@sensor The function displaying serial information on the GUI. 
-	@Param Data coming in from serial.py. 
+	The functions displaying serial information on the GUI. 
+	@param Data coming in from serial.py. 
 */
 	function t1(msg){
 			smartSystem("T1",msg);
