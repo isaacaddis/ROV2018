@@ -4,40 +4,23 @@ This repository features the code for 45C Robotics' entire electronic system in 
 
 For more information about our team, please visit [camsrov.com](http://camsrov.com).
 
-## DRIVER INFORMATION
+# Developers
 
-### DRIVE
+## Calibration
 
-```
-To drive:
-	One joystick for vertical movement
-	One arcade-drive joystick for lateral movement
-```
-### ARTICULATION
+To calibrate the camera for conversion from pixels to meters, find the meter/pixel conversion rate using a basic calibration setup.
 
-```
-All relevant and necessary data is on the GUI!
+In Robot/Vision/, execute the calibration.py script, and align a reference object of **known length** aligned perfectly with the **600x600* screen.
 
-  Claw
-  Temperature sensor (x2)
-  Two cameras - one forward, one bottom
-```
+From there, divide known length by pixel width (600), to find the corresponding conversion rate to the camera. 
 
-## DEVELOPER INFORMATION
+## Graphical User Interfaces
 
-### GRAPHICAL USER INTERFACE
+For this season, we opted to use a graphical user interface (GUI) for pilot operation using the Raspberry Pi 3 using [HTMLPy](http://htmlpy.readthedocs.io/en/master/), and another GUI on the onboard Ubuntu computer using the PyQT4 module. 
 
-To run the GUI, change your directory over to /Robot/45C_Pi and run:
+To run the operator GUI, change your directory over to /Robot/45C_Pi and run:
 
 
 ```
 	$ (sudo) driver.py
 ```
-
-45c uses the [HTMLPy](http://htmlpy.readthedocs.io/en/master/) library for developing our GUI. 
-
-### CAMERAS
-
-45c uses [OpenCV](https://opencv.org/)  for vision processing. 
-
-Our vision code is wrapped through a custom-made GUI made, using the **PyQt4** python module. 
