@@ -1,12 +1,7 @@
 import cv2
 import numpy as np
-#import qdarkstyle
-#import RPi.GPIO as GPIO
 from time import sleep
 import sys
-#from PyQt4 import QtGui
-#from PyQt4 import QtCore
-#from PyQt4.QtGui import *
 import os
 
 #__author__ = "isaacaddis"
