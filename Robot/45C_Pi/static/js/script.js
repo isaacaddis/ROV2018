@@ -59,21 +59,25 @@ function smartSystem(mode,val){
 	@param Data coming in from serial.py. 
 */
 	function t1(msg){
+			alert(msg);
 			smartSystem("T1",msg);
 			console.log(msg);
 			$('#temp').text(msg);
 	}
 	function t2(msg){
+			alert(msg);
 			smartSystem("T2",msg);
 			console.log(msg);
 			$('#temp2').text(msg);
 	}
 	function v1(msg){
+			alert(msg);
 			smartSystem("V1",msg);
 			console.log(msg);
 			$('#volt').text(msg);
 	}
 	function v2(msg){
+			alert(msg);
 			smartSystem("V2",msg);
 			console.log(msg);
 			$('#volt2').text(msg);
