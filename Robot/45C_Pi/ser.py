@@ -15,7 +15,8 @@ ser.isOpen()
 '''	
 while True:		
 	try:
-		msg = str(ser.readline().decode('utf-8'))
+	#	msg = str(ser.readline().decode('utf-8'))
+		msg = 'T133'
 		if msg.startswith('T1'):
 			message = msg[2:]
 			print(message)
