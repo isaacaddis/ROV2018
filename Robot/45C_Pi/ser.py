@@ -5,6 +5,7 @@
 import time
 #import serial
 from driver import app
+import PySide.QtCore as q
 
 #Start serial coms
 #ser = serial.Serial('/dev/ttyUSB0',9600,timeout=1)
@@ -29,7 +30,10 @@ while True:
 			}
 			'''
 			app.evaluate_javascript("document.getElementById('temp').innerHTML="+message+";")
-			# app.evaluate_javascript("alert(document.getElementById('temp').textContent);")
+			die_time=q.QTime.currentTime().addSecs(1)
+			while q.QTime.currentTime() < die_time:
+				q.QCoreApplication.processEvents(q.QEventLoop.AllEvents,100)
+			app.evaluate_javascript("alert(document.getElementById('temp').textContent);")
 			# app.evaluate_javascript("alert("+message+");")
 		elif msg.startswith('T2'):
 			message = msg[2:]
