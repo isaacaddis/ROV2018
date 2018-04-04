@@ -46,10 +46,10 @@ def vis(mirror=True):
 				dx= centers[0][0] - centers[1][0]
 				dy = centers[0][1] - centers[1][1]
 				D = abs(dy)
-			#TODO: Calibrate
-			cv2.putText(frame,str(D),
-			(frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
-			2.0, (0, 255, 0), 3)		
+				#TODO: Calibrate
+				cv2.putText(frame,str(D),
+				(frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
+				2.0, (0, 255, 0), 3)		
 			cv2.imshow("45c Robotics",frame)
 			if cv2.waitKey(1) & 0xFF == ord('q'):
 					break
