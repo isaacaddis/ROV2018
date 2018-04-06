@@ -4,6 +4,20 @@ This repository features the code for 45C Robotics' entire electronic system in 
 
 For more information about our team, please visit [camsrov.com](http://camsrov.com).
 
+## To run code
+
+### Raspberry Pi
+
+`cd ~/home/pi/Desktop/ROV2018/Robot/45C_Pi && sudo python driver.py`
+
+open another terminal window (Ctrl+Shift+T), and run 
+
+`sudo python ser.py`
+
+### Main control computer
+
+`cd ~/home/pi/Desktop/ROV2018/Robot/vision && sudo python vision.py`
+
 # Developer Information
 
 ## Calibration
