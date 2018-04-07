@@ -9,9 +9,9 @@ import os
 
 def vis(mirror=True):
 	#it = 0
-	cap = cv2.VideoCapture(1)
+	cap = cv2.VideoCapture(0)
 	cv2.namedWindow("45c Robotics", cv2.WND_PROP_FULLSCREEN)
-	cv2.setWindowProperty("45c Robotics", cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)	
+	cv2.setWindowProperty("45c Robotics", cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
 	if mirror:
 		while cap.isOpened():
 			#it+=1
@@ -38,18 +38,18 @@ def vis(mirror=True):
 				M = cv2.moments(cnts1)
 				cX = int(M['m10'] /M['m00'])
 				cY = int(M['m01'] /M['m00'])
-				centers.append([cX,cY])		
+				centers.append([cX,cY])
 				M = cv2.moments(cnts2)
 				cX = int(M['m10'] /M['m00'])
 				cY = int(M['m01'] /M['m00'])
-				centers.append([cX,cY])		 
+				centers.append([cX,cY])
 				dx= centers[0][0] - centers[1][0]
 				dy = centers[0][1] - centers[1][1]
 				D = abs(dy)
 				#TODO: Calibrate
 				cv2.putText(frame,str(D),
 				(frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
-				2.0, (0, 255, 0), 3)		
+				2.0, (0, 255, 0), 3)
 			cv2.imshow("45c Robotics",frame)
 			if cv2.waitKey(1) & 0xFF == ord('q'):
 					break
