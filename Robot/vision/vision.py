@@ -34,12 +34,14 @@ class MainApp(QWidget):
         self.main_layout.addWidget(self.quit_button)
 
         self.setLayout(self.main_layout)
+        self.setWindowTitle('45c Robotics Video Multiplexer')
+        self.showMaximized()
 
     def setup_camera(self):
         """Initialize camera.
         """
         self.capture = cv2.VideoCapture(0)
-        self.capture2 = cv2.VideoCapture(1)
+        self.capture2 = cv2.VideoCapture(0)
         if hasattr(cv2,'cv'):
             self.capture.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 960)
             self.capture2.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 640)

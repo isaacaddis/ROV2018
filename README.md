@@ -1,10 +1,12 @@
 # 45C Robotics
-
+i
 This repository features the code for 45C Robotics' entire electronic system in the 2017-18 MATE Robotics Competition. 
 
 For more information about our team, please visit [camsrov.com](http://camsrov.com).
 
 ## To run code
+
+**Note**: You must have necessary packages installed for these scripts to run. Make sure you have pip installed and follow error messages.
 
 ### Raspberry Pi
 
@@ -16,7 +18,9 @@ open another terminal window (Ctrl+Shift+T), and run
 
 ### Main control computer
 
-`cd ~/Desktop/ROV2018/Robot/vision && sudo python vision.py`
+Note: Running python instead of python3 may work, but qdarkstyle does not work correctly for us using Python 2.
+
+`cd ~/Desktop/ROV2018/Robot/vision && sudo python3 vision.py`
 
 # Developer Information
 
