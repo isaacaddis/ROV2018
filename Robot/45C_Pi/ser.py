@@ -52,4 +52,4 @@ while True:
 		range(10000) and None; time.sleep(0.02)		
 	except KeyboardInterrupt:
 		print("There was an error!")		
-		#ser.close()
+		ser.close()
