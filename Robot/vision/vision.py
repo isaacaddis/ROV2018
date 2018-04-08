@@ -9,7 +9,14 @@ import sys
 import numpy as np
 import threading
 
-
+class camThread(threading.Thread):
+    def __init__(self, previewName, camID):
+        threading.Thread.__init__(self)
+        self.previewName = previewName
+        self.camID = camID
+    def run(self):
+        print("Starting: " + self.previewName)
+        MainApp.setup_camera(self.previewName, self.camID)
 class MainApp(QWidget):
 
     def __init__(self):
@@ -21,16 +28,6 @@ class MainApp(QWidget):
         cam2 = camThread("Cam 2",1)
         cam1.run()
         cam2.run()
-
-
-    class camThread(threading.Thread):
-        def __init__(self, previewName, camID):
-            threading.Thread.__init__(self)
-            self.previewName = previewName
-            self.camID = camID
-        def run(self):
-            print "Starting: " + self.previewName
-            MainApp.setup_camera(self.previewName, self.camID)
 
     def setup_ui(self):
         """Initialize widgets.
@@ -53,39 +50,39 @@ class MainApp(QWidget):
         self.setWindowTitle('45c Robotics Video Multiplexer')
         self.showMaximized()
 
-    def setup_camera(self,previewName,camID):
+    def setup_camera(previewName,camID):
         """Initialize camera.
         """
         if camID==0:
-            self.capture = cv2.VideoCapture(0)
+            capture = cv2.VideoCapture(0)
             if hasattr(cv2,'cv'):
-                self.capture.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 960)
+                capture.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 960)
                 # self.capture2.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 640)
-                self.capture.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 540)
+                capture.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 540)
                 # self.capture2.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 480)
             else:
-                self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, 960)
+                capture.set(cv2.CAP_PROP_FRAME_WIDTH, 960)
                 # self.capture2.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-                self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 540)
+                capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 540)
                 # self.capture2.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-            self.timer = QTimer()
-            self.timer.timeout.connect(self.cap)
-            self.timer.start(30)
-        else camID==1:
-            self.capture2 = cv2.VideoCapture(1)
+            timer = QTimer()
+            timer.timeout.connect(MainApp.cap)
+            timer.start(30)
+        elif camID==1:
+            capture2 = cv2.VideoCapture(1)
             if hasattr(cv2,'cv'):
                 # self.capture.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 960)
-                self.capture2.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 640)
+                capture2.set(cv2.cv.CAP_PROP_FRAME_WIDTH, 640)
                 # self.capture.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 540)
-                self.capture2.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 480)
+                capture2.set(cv2.CV_CAP_PROP_FRAME_HEIGHT, 480)
             else:
                 # self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, 960)
-                self.capture2.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+                capture2.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
                 # self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 540)
-                self.capture2.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-            self.timer = QTimer()
-            self.timer.timeout.connect(self.cap2)
-            self.timer.start(30)
+                capture2.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+            timer = QTimer()
+            timer.timeout.connect(MainApp.cap2)
+            timer.start(30)
     #True means turn vision on
     capState = True
     def cap(self):
