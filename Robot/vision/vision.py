@@ -63,7 +63,7 @@ class MainApp(QWidget):
             timer = QTimer(self)
             print("Run Videocap")
             timer.timeout.connect(self.cap)
-            timer.start(30)
+            timer.start(15)
     def setup_camera2(self):
         if True:
             self.capture2 = cv2.VideoCapture(1)
@@ -80,7 +80,7 @@ class MainApp(QWidget):
             #self.cap2()
             timer2 = QTimer(self)
             timer2.timeout.connect(self.cap2)
-            timer2.start(30)
+            timer2.start(15)
     #True means turn vision on
     #capState = True
     def cap(self):
@@ -168,8 +168,8 @@ class MainApp(QWidget):
                 cv2.putText(frame,str(D),
                 (frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
                 2.0, (0, 255, 0), 3)
-        image2 = QImage(frame2, frame2.shape[1], frame2.shape[0], frame2.strides[0], QImage.Format_RGB888)
-        self.image_label2.setPixmap(QPixmap.fromImage(image2))
+        image = QImage(frame, frame.shape[1], frame.shape[0], frame.strides[0], QImage.Format_RGB888)
+        self.image_label2.setPixmap(QPixmap.fromImage(image))
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     dark_stylesheet = qdarkstyle.load_stylesheet_pyside()
