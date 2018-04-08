@@ -9,7 +9,7 @@ import os
 
 def vis(mirror=True):
 	#it = 0
-	cap = cv2.VideoCapture(0)
+	cap = cv2.VideoCapture(1)
 	cv2.namedWindow("45c Robotics", cv2.WND_PROP_FULLSCREEN)
 	cv2.setWindowProperty("45c Robotics", cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
 	if mirror:
