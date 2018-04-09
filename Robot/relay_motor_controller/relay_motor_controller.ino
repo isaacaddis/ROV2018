@@ -1,16 +1,15 @@
 /**
- * @author tedfoodlin
  * @author jiajerho
- * @author neil
  * 
- * ROV relay motor controller v2.2
+ * ROV relay motor controller v2.4
+ * 4/8/2018
  */
  
 // Motors
 #define M1 9 //MOTOR 1
-#define MM1 10 //MOTOR 1
+#define MM1 2 //MOTOR 1
 #define M2 3 //MOTOR 2
-#define MM2 11 //MOTOR 2
+#define MM2 4 //MOTOR 2
 #define M3 5 //MOTOR 3
 #define MM3 6 //MOTOR 3
 #define M4 7 //MOTOR 4
@@ -62,13 +61,13 @@ void loop()
     allForwards();
   }
   // if y-axis power is positive
-  else if (speed1 > 500)
+  else if (speed1 > 400)
   {
     allReverse();
   } 
   // if y-axis power is at resting state (for the sake of brevity we're calling it zero from now on)
   else 
-  {
+  
     // if x-axis power is negative (left direction)
     if (speed2 < 50){
       turnLeft();
@@ -81,7 +80,7 @@ void loop()
     else {
       allZero();
     }
-  }
+  
 
 /**
  * vertical motors
@@ -113,62 +112,62 @@ void loop()
 
 // vertical motor functions and motion 
 void goUp(){
-  pinMode(MM3, HIGH); //MOTOR 3 CLOCKWISE
-  pinMode(MM4, HIGH); // MOTOR 4 CLOCKWISE
+  digitalWrite(MM3, HIGH); //MOTOR 3 CLOCKWISE
+   digitalWrite(MM4, HIGH); // MOTOR 4 CLOCKWISE
 //  Serial.println("Go Up");
 }
 void goDown(){
-  pinMode(M3, HIGH); //MOTOR 3 COUNTER CLOCKWISE
-  pinMode(M4, HIGH); // MOTOR 4 COUNTER CLOCKWISE
+    digitalWrite(M3, HIGH); //MOTOR 3 COUNTER CLOCKWISE
+   digitalWrite(M4, HIGH); // MOTOR 4 COUNTER CLOCKWISE
 //  Serial.println("Go Down");
 }
 void pitchFwd(){
-  pinMode(M3, HIGH); 
-  pinMode(MM4, HIGH);
+  digitalWrite(M3, HIGH); 
+   digitalWrite(MM4, HIGH);
 //  Serial.println("Pitch fowards");
 }
 void pitchBack(){
-  pinMode(MM3, HIGH);
-  pinMode(M3, HIGH);
+  digitalWrite(MM3, HIGH);
+   digitalWrite(M3, HIGH);
 //  Serial.println("Pitch backwards");
 }
 void verticalZero(){
-  pinMode(M3, LOW); //MOTOR 3 STOP
-  pinMode(MM3, LOW); // MOTOR 3 STOP
-  pinMode(M4, LOW); //MOTOR 4 STOP
-  pinMode(MM4, LOW); // MOTOR 4 STOP
+   digitalWrite(M3, LOW); //MOTOR 3 STOP
+   digitalWrite(MM3, LOW); // MOTOR 3 STOP
+   digitalWrite(M4, LOW); //MOTOR 4 STOP
+  digitalWrite(MM4, LOW); // MOTOR 4 STOP
 //  Serial.println("Vertical zero");
 }
 
 // lateral motion functions
 void allForwards(){
-  pinMode(M1, HIGH); //MOTOR 1 CLOCKWISE
-  pinMode(M2, HIGH); //MOTOR 2 CLOCKWISE
+  digitalWrite(M1, HIGH); //MOTOR 1 CLOCKWISE
+  digitalWrite(M2, HIGH); //MOTOR 2 CLOCKWISE
 //  Serial.println("All forwards");
 }
 void allReverse(){
-  pinMode(MM1, HIGH); //MOTOR 1 COUNTER CLOCKWISE
-  pinMode(MM2, HIGH); //MOTOR 2 COUNTER CLOCKWISE
+  digitalWrite(MM1, HIGH); //MOTOR 1 COUNTER CLOCKWISE
+  digitalWrite(MM2, HIGH); //MOTOR 2 COUNTER CLOCKWISE
 //  Serial.println("All reverse");
 }
 void allZero(){
-  pinMode(M1, LOW); //MOTOR 1 STOP
-  pinMode(MM1, LOW); // MOTOR 1 STOP
-  pinMode(M2, LOW); //MOTOR 2 STOP
-  pinMode(MM2, LOW); // MOTOR 2 STOP
-  pinMode(M3, LOW); //MOTOR 3 STOP
-  pinMode(MM3, LOW); // MOTOR 3 STOP
-  pinMode(M4, LOW); //MOTOR 4 STOP
-  pinMode(MM4, LOW); // MOTOR 4 STOP
+  digitalWrite(M1, LOW); //MOTOR 1 STOP
+  digitalWrite(MM1, LOW); // MOTOR 1 STOP
+  digitalWrite(M2, LOW); //MOTOR 2 STOP
+  digitalWrite(MM2, LOW); // MOTOR 2 STOP
+  digitalWrite(M3, LOW); //MOTOR 3 STOP
+  digitalWrite(MM3, LOW); // MOTOR 3 STOP
+  digitalWrite(M4, LOW); //MOTOR 4 STOP
+  digitalWrite(MM4, LOW); // MOTOR 4 STOP
 //  Serial.println("All zero");
 }
 void turnLeft(){
-  pinMode(M1, HIGH); //MOTOR 1 CLOCKWISE
-  pinMode(MM2, HIGH); //MOTOR 2 COUNTER CLOCKWISE
+  digitalWrite(M1, HIGH); //MOTOR 1 CLOCKWISE
+  digitalWrite(MM2, HIGH); //MOTOR 2 COUNTER CLOCKWISE
 //  Serial.println("Turn left");
 }
 void turnRight(){
-  pinMode(MM1, HIGH); //MOTOR 1 COUNTER CLOCKWISE
-  pinMode(M2, HIGH); //MOTOR 2 CLOCKWISE
+  digitalWrite(MM1, HIGH); //MOTOR 1 COUNTER CLOCKWISE
+  digitalWrite(M2, HIGH); //MOTOR 2 CLOCKWISE
 //  Serial.println("Turn right");
 }
