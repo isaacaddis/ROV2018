@@ -1,8 +1,7 @@
 /**
  * @author jiajerho
  * 
- * ROV relay motor controller v2.4
- * 4/8/2018
+ * ROV relay motor controller 4/8/2018
  */
  
 // Motors
@@ -48,7 +47,6 @@ void loop()
 {
   // Joystick power
   speed0 = analogRead(knob)/2; //vertical y-axis
-  speed3 = analogRead(knob3)/2; // vertical x-axis
   speed1 = analogRead(knob1)/2; //lateral y-axis
   speed2 = analogRead(knob2)/2; //lateral x-axis
   
@@ -98,15 +96,7 @@ void loop()
   // if y-axis power is zero
   else 
   {
-    if (speed3 < 50){
-      pitchFwd();
-    }
-    else if (speed3 > 400){
-      pitchBack();
-    }
-    else {
-      verticalZero();
-    }
+     allZero();
   }
 }
 
