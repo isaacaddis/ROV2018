@@ -16,7 +16,6 @@
 
 // Speed pins
 int speed0 = 170; 
-int speed3 = 170;
 int speed1 = 170; 
 int speed2 = 170; 
 const int knob = 0; // Pin for Speed
@@ -96,7 +95,7 @@ void loop()
   // if y-axis power is zero
   else 
   {
-     allZero();
+
   }
 }
 
