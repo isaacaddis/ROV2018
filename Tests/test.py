@@ -4,17 +4,15 @@ from time import sleep
 import sys
 import os
 
-#__author__ = "isaacaddis"
+__author__ = "isaacaddis"
 #os.environ['PYQTGRAPH_QT_LIB'] = 'PyQt'
 
 def vis(mirror=True):
-	#it = 0
 	cap = cv2.VideoCapture(1)
 	cv2.namedWindow("45c Robotics", cv2.WND_PROP_FULLSCREEN)
 	cv2.setWindowProperty("45c Robotics", cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
 	if mirror:
 		while cap.isOpened():
-			#it+=1
 			ret_val, frame = cap.read()
 			#img = cv2.flip(frame, 1)
 			kernel = np.ones((5,5), np.uint8)
@@ -27,30 +25,28 @@ def vis(mirror=True):
 			_,cnts, _ = cv2.findContours(img.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 			centers = []
 			if len(cnts)>=2:
-				cntsSorted = sorted(cnts,key=cv2.contourArea,reverse=True)
-				cnts1=cntsSorted[0]
-				cnts2=cntsSorted[1]
-				cntsShort = [cnts1,cnts2]
-				x,y,w,h = cv2.boundingRect(cnts1)
-				cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
-				x,y,w,h = cv2.boundingRect(cnts2)
-				cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
-				M = cv2.moments(cnts1)
-				cX = int(M['m10'] /M['m00'])
-				cY = int(M['m01'] /M['m00'])
-				centers.append([cX,cY])
-				M = cv2.moments(cnts2)
-				cX = int(M['m10'] /M['m00'])
-				cY = int(M['m01'] /M['m00'])
-				centers.append([cX,cY])
-				dx= centers[0][0] - centers[1][0]
-				dy = centers[0][1] - centers[1][1]
-				D = abs(dy)
-				#TODO: Calibrate
-				cv2.putText(frame,str(D),
-				(frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
-				2.0, (0, 255, 0), 3)
-			cv2.imshow("45c Robotics",frame)
+				centers = []
+				for c in cnts:
+					x,y,w,h = cv2.boundingRect(c)
+					cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
+					M = cv2.moments(c)
+					if M['00'] is not 0:
+					    cX = int(M['m10'] /M['m00'])
+					    cY = int(M['m01'] /M['m00'])
+					centers.append([cX,cY])
+					# M = cv2.moments(cnts2)
+					# cX = int(M['m10'] /M['m00'])
+					# cY = int(M['m01'] /M['m00'])
+					# centers.append([cX,cY])
+					if len(centers)==2:
+					    dx= centers[0][0] - centers[1][0]
+					    dy = centers[0][1] - centers[1][1]
+					    D = abs(dy)
+					    #TODO: Calibrate
+					    cv2.putText(frame,str(D),
+					    (frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
+					    2.0, (0, 255, 0), 3)
+			cv2.imshow("45C Robotics",frame)
 			if cv2.waitKey(1) & 0xFF == ord('q'):
 					break
 vis(mirror=True)
