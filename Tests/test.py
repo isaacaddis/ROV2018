@@ -30,18 +30,18 @@ def vis(mirror=True):
 					x,y,w,h = cv2.boundingRect(c)
 					cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
 					M = cv2.moments(c)
-					if M['00'] is not 0:
+					if M['00']!=0:
 					    cX = int(M['m10'] /M['m00'])
 					    cY = int(M['m01'] /M['m00'])
-					centers.append([cX,cY])
-					# M = cv2.moments(cnts2)
-					# cX = int(M['m10'] /M['m00'])
-					# cY = int(M['m01'] /M['m00'])
-					# centers.append([cX,cY])
+					    centers.append([cX,cY])
+					else:
+					    print("Impossible to append to centers.")
 					if len(centers)==2:
 					    dx= centers[0][0] - centers[1][0]
 					    dy = centers[0][1] - centers[1][1]
 					    D = abs(dy)
+					    print("Distance: ")
+					    print(D)
 					    #TODO: Calibrate
 					    cv2.putText(frame,str(D),
 					    (frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
