@@ -16,6 +16,10 @@ def vis(mirror=True):
         cap2.set(3,320)
         cap2.set(4,216)
         cap2.set(5,15)
+        cv2.namedWindow("45c Robotics", cv2.WINDOW_NORMAL)
+        cv2.resizeWindow("45c Robotics", 600,600)
+        cv2.namedWindow("45c Robotics 2",cv2.WINDOW_NORMAL)
+        cv2.resizeWindow("45c Robotics 2",600,600)
         if mirror:
 		while cap.isOpened():
 			ret_val, frame = cap.read()
@@ -32,7 +36,7 @@ def vis(mirror=True):
 			centers = []
 			if len(cnts)>=2:
 				for c in cnts:
-                                    if cv2.contourArea(c)<600:
+                                    if cv2.contourArea(c)<200:
                                         continue
                                     if cv2.contourArea(c)>1000:
                                         continue
