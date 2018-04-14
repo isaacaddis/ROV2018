@@ -25,10 +25,11 @@ def vis(mirror=True):
 			_,cnts, _ = cv2.findContours(img.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 			centers = []
 			if len(cnts)>=2:
+				centers = []
 				for c in cnts:
-                                    if cv2.contourArea(c)<600:
+                                    if cv2.contourArea(c)<100:
                                         continue
-                                    if cv2.contourArea(c)>1000:
+                                    if cv2.contourArea(c)>2000:
                                         continue
 				    x,y,w,h = cv2.boundingRect(c)
 				    cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
@@ -49,7 +50,7 @@ def vis(mirror=True):
 					 cv2.putText(frame,str(D),
 					 (frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
 					 2.0, (0, 255, 0), 3)
-			cv2.imshow("45c Robotics",frame)
+			cv2.imshow("45C Robotics",frame)
 			if cv2.waitKey(1) & 0xFF == ord('q'):
 					break
 vis(mirror=True)
