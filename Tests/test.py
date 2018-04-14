@@ -8,12 +8,18 @@ __author__ = "isaacaddis"
 #os.environ['PYQTGRAPH_QT_LIB'] = 'PyQt'
 
 def vis(mirror=True):
-	cap = cv2.VideoCapture(1)
-	cv2.namedWindow("45c Robotics", cv2.WND_PROP_FULLSCREEN)
-	cv2.setWindowProperty("45c Robotics", cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
-	if mirror:
+	cap = cv2.VideoCapture(0)
+        cap.set(3,320)
+        cap.set(4,216)
+        cap.set(5,15)
+	cap2 = cv2.VideoCapture(1)
+        cap2.set(3,320)
+        cap2.set(4,216)
+        cap2.set(5,15)
+        if mirror:
 		while cap.isOpened():
 			ret_val, frame = cap.read()
+			ret_val2, frame2 = cap2.read()
 			#img = cv2.flip(frame, 1)
 			kernel = np.ones((5,5), np.uint8)
 			img = cv2.GaussianBlur(frame,(5,5),0)
@@ -50,6 +56,7 @@ def vis(mirror=True):
 					 (frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
 					 2.0, (0, 255, 0), 3)
 			cv2.imshow("45c Robotics",frame)
+			cv2.imshow("45c Robotics 2",frame2)
 			if cv2.waitKey(1) & 0xFF == ord('q'):
-					break
+                            break
 vis(mirror=True)
