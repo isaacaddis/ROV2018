@@ -21,6 +21,8 @@ def vis(mirror=True):
  """)
     vis1 = True
     vis2 = True
+    # Default - Red
+    color_mode="red"
     cap = cv2.VideoCapture(0)
     cap.set(3,320)
     cap.set(4,216)
@@ -79,9 +81,26 @@ def vis(mirror=True):
             if vis2 == True:
                 kernel = np.ones((5,5), np.uint8)
                 img = cv2.GaussianBlur(frame2,(5,5),0)
+                if keyboard.is_pressed('s'):
+                	if color_mode == "red":
+                		color_mode == "blue"
+                		print("Switched color mode to " + color_mode)
+                	elif color_mode == "blue":
+                		color_mode == "none"
+                		print("Switched color mode to " + color_mode)
+                	elif color_mode == "none"
+                	    color_mode == "red"
+                	    print("Switched color mode to " + color_mode)
+                	print("Switched color mode to")
+                if color_mode == "red":
+                	hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+                	img = cv2.inRange(hsv,(0,0,30),(80,80,255))
+                if color_mode == "blue":
+                	hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+                	img = cv2.inRange(hsv,(110,150,150),(130,255,255))
                 img = cv2.erode(img, kernel, iterations=1)
                 img = cv2.dilate(img, kernel, iterations=1)
-                img = cv2.cvtColor( img, cv2.COLOR_RGB2GRAY)
+                # img = cv2.cvtColor( img, cv2.COLOR_RGB2GRAY)
                 img = cv2.Canny(img,100,200)
                 img = cv2.bilateralFilter(img, 11, 17, 17)
                 _,cnts, _ = cv2.findContours(img.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
