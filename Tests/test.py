@@ -36,9 +36,9 @@ def vis(mirror=True):
 			centers = []
 			if len(cnts)>=2:
 				for c in cnts:
-                                    if cv2.contourArea(c)<200:
+                                    if cv2.contourArea(c)<100:
                                         continue
-                                    if cv2.contourArea(c)>1000:
+                                    if cv2.contourArea(c)>2000:
                                         continue
 				    x,y,w,h = cv2.boundingRect(c)
 				    cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
