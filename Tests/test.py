@@ -82,7 +82,7 @@ def vis(mirror=True):
                             print("Distance (meters): ")
                             D = D * conversion_rate
                             print(D)
-                            cv2.putText(frame,str(D),(frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,2.0, (0, 255, 0), 3)
+                            cv2.putText(frame,str(D)+" meters",(frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,2.0, (0, 255, 0), 3)
             if vis2 == True:
                 kernel = np.ones((5,5), np.uint8)
                 img = cv2.GaussianBlur(frame2,(5,5),0)
