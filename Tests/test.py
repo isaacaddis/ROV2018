@@ -6,7 +6,6 @@ import os
 import keyboard
 
 __author__ = "isaacaddis"
-#os.environ['PYQTGRAPH_QT_LIB'] = 'PyQt'
 
 def vis(mirror=True):
     print("""/
