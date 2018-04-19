@@ -25,11 +25,11 @@ def vis(mirror=True):
     vis2 = True
     # Default - Red
     color_mode="red"
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
     cap.set(3,320)
     cap.set(4,216)
     cap.set(5,15)
-    cap2 = cv2.VideoCapture(1)
+    cap2 = cv2.VideoCapture(0)
     cap2.set(3,320)
     cap2.set(4,216)
     cap2.set(5,15)
@@ -40,7 +40,9 @@ def vis(mirror=True):
     if mirror:
         while cap.isOpened():
             ret_val, frame = cap.read()
+            frame = cv2.flip(frame, 1)
             ret_val2, frame2 = cap2.read()
+            frame2 = cv2.flip(frame2, 1)
             if keyboard.is_pressed('a'):
                 vis1^=True
                 print("Vision state switched on Camera 0.")
