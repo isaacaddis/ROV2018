@@ -13,24 +13,25 @@ void loop()
   takeReading();
 }
 void takeReading(){
-   long runningTotal = 0.0;
+   int runningTotal = 0.0;
    elapsedMillis timeElapsed;
    unsigned int interval = 10000; 
    while(timeElapsed < interval){
-     long volts = volts();
+     long volts = getVolts();
      if(volts > 1 && volts < 2){
       runningTotal +=1;
      }
+  } 
+  long ratio = runningTotal/timeElapsed;
+  if(ratio > .05 && ratio < 1){
+    Serial.println("Open Claw");
+  }
 }
-long ratio = runningTotal/timeElapsed;
-if(ratio > .05 && ratio < 1){
-  Serial.println("Open Claw");
-}
-}
-long volts(){
+long getVolts(){
   unsigned long startMillis= millis();  // Start of sample window
   unsigned int peakToPeak = 0;   // peak-to-peak levelunsigned int signalMax = 0;
   unsigned int signalMin = 1024;
+  unsigned int signalMax = 0;
   // collect data for 50 mS
   while (millis() - startMillis < sampleWindow)
   {
@@ -50,10 +51,4 @@ long volts(){
   peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
   double volts = (peakToPeak * 5.0) / 1024;  // convert to volts
   return volts;
-}
-bool checkState(volts){
-    if(volts < 1.2 && volts > 1.6){[
-        return True;
-    }
-    return False;
 }
