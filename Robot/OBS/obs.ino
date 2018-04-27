@@ -1,60 +1,55 @@
 const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)
 unsigned int sample;
-#include "Timer.h"
 #include <elapsedMillis.h>
 
-Timer t;
 void setup() 
 {
    Serial.begin(9600);
-   t.every(1000,takeReading);
 }
 
 
 void loop() 
 {
-   t.update();
+  takeReading();
 }
 void takeReading(){
+   long runningTotal = 0.0;
    elapsedMillis timeElapsed;
    unsigned int interval = 10000; 
    while(timeElapsed < interval){
-
-   unsigned long startMillis= millis();  // Start of sample window
-   unsigned int peakToPeak = 0;   // peak-to-peak level
-
-   unsigned int signalMax = 0;
-   unsigned int signalMin = 1024;
-
-   // collect data for 50 mS
-   while (millis() - startMillis < sampleWindow)
-   {
-      sample = analogRead(3);
-      if (sample < 1024)  // toss out spurious readings
-      {
-         if (sample > signalMax)
-         {
-            signalMax = sample;  // save just the max levels
-         }
-         else if (sample < signalMin)
-         {
-            signalMin = sample;  // save just the min levels
-         }
-      }
-   }
-   peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
-   double volts = (peakToPeak * 5.0) / 1024;  // convert to volts
-   Serial.println(volts);   
-   if(checkState(volts){
-        delay(500);
-        if(checkState(volts){
-            Serial.println("Open Claw");
-        }
-        else{
-            Serial.println("Failed second test to open claw.");
-        }
-   }
+     long volts = volts();
+     if(volts > 1 && volts < 2){
+      runningTotal +=1;
+     }
 }
+long ratio = runningTotal/timeElapsed;
+if(ratio > .05 && ratio < 1){
+  Serial.println("Open Claw");
+}
+}
+long volts(){
+  unsigned long startMillis= millis();  // Start of sample window
+  unsigned int peakToPeak = 0;   // peak-to-peak levelunsigned int signalMax = 0;
+  unsigned int signalMin = 1024;
+  // collect data for 50 mS
+  while (millis() - startMillis < sampleWindow)
+  {
+     sample = analogRead(3);
+     if (sample < 1024)  // toss out spurious readings
+     {
+        if (sample > signalMax)
+        {
+           signalMax = sample;  // save just the max levels
+        }
+        else if (sample < signalMin)
+        {
+           signalMin = sample;  // save just the min levels
+        }
+     }
+  }
+  peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
+  double volts = (peakToPeak * 5.0) / 1024;  // convert to volts
+  return volts;
 }
 bool checkState(volts){
     if(volts < 1.2 && volts > 1.6){[
