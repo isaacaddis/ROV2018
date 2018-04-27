@@ -39,10 +39,9 @@ void takeReading(){
    }
    peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
    double volts = (peakToPeak * 5.0) / 1024;  // convert to volts
-   
+   Serial.println(volts);   
    if(volts < 1.2 && volts > 1.6){
-      
+      Serial.println("Open");
    }
 
-   Serial.println(volts);
 }
