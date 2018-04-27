@@ -13,21 +13,24 @@ void loop()
   takeReading();
 }
 void takeReading(){
-   int runningTotal = 0.0;
+   double runningTotal = 0;
    elapsedMillis timeElapsed;
    unsigned int interval = 10000; 
    while(timeElapsed < interval){
-     long volts = getVolts();
-     if(volts > 1 && volts < 2){
+     double volts = getVolts();
+     //for testing
+     Serial.println("Volts: ");
+     Serial.println(volts);
+     if(volts > 1 && volts < 2)
       runningTotal +=1;
+      Serial.println("Added to running total!");  
      }
-  } 
-  long ratio = runningTotal/timeElapsed;
+  double ratio = runningTotal/timeElapsed;
   if(ratio > .05 && ratio < 1){
     Serial.println("Open Claw");
   }
 }
-long getVolts(){
+double getVolts(){
   unsigned long startMillis= millis();  // Start of sample window
   unsigned int peakToPeak = 0;   // peak-to-peak levelunsigned int signalMax = 0;
   unsigned int signalMin = 1024;
@@ -40,7 +43,7 @@ long getVolts(){
      {
         if (sample > signalMax)
         {
-           signalMax = sample;  // save just the max levels
+           signalMax = sample;  // save just the max levels+
         }
         else if (sample < signalMin)
         {
