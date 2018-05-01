@@ -49,7 +49,7 @@ void takeReading(){
  
      Serial.println("Volts: ");
      Serial.println(volts);
-     if(volts > 1 && volts < 2){
+     if(volts > 1.2 && volts < 1.8){
       runningTotal +=1;
       Serial.println("Added to running total! with runningTotal " + String(runningTotal));  
      }
