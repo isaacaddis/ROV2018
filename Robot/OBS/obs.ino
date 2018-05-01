@@ -12,24 +12,6 @@ void loop()
 {
   takeReading();
 }
-void takeReading(){
-   double runningTotal = 0;
-   elapsedMillis timeElapsed;
-   unsigned int interval = 10000; 
-   while(timeElapsed < interval){
-     double volts = getVolts();
-     //for testing
-     Serial.println("Volts: ");
-     Serial.println(volts);
-     if(volts > 1 && volts < 2)
-      runningTotal +=1;
-      Serial.println("Added to running total!");  
-     }
-  double ratio = runningTotal/timeElapsed;
-  if(ratio > .05 && ratio < 1){
-    Serial.println("Open Claw");
-  }
-}
 double getVolts(){
   unsigned long startMillis= millis();  // Start of sample window
   unsigned int peakToPeak = 0;   // peak-to-peak levelunsigned int signalMax = 0;
@@ -54,4 +36,36 @@ double getVolts(){
   peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
   double volts = (peakToPeak * 5.0) / 1024;  // convert to volts
   return volts;
+
+}
+void takeReading(){
+
+   double runningTotal = 0;
+   elapsedMillis timeElapsed;
+   unsigned int interval = 10000; 
+   while(timeElapsed < interval){
+     double volts = getVolts();
+     //for testing
+ 
+     Serial.println("Volts: ");
+     Serial.println(volts);
+     if(volts > 1 && volts < 2){
+      runningTotal +=1;
+      Serial.println("Added to running total! with runningTotal " + String(runningTotal));  
+     }
+     else{
+      Serial.println("COULDN'T ADD TO RUNNING TOTAL. Voltage was : "+ String(volts));
+     }
+     Serial.println("Time Ellapsed: " +String(timeElapsed) + "ms");
+   }
+  double ratio = runningTotal/timeElapsed;
+  Serial.println("Ratio is currently: "+ String(ratio));
+  if(ratio > 0 && ratio < .02){
+    Serial.println("Open Claw");
+  }
+  else{
+    Serial.println("Don't open claw");
+  }
+    delay(5000);
+
 }
