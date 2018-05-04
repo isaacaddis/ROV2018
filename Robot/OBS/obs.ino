@@ -39,11 +39,12 @@ double getVolts(){
 
 }
 void takeReading(){
-
+   double loops = 0;
    double runningTotal = 0;
    elapsedMillis timeElapsed;
    unsigned int interval = 10000; 
    while(timeElapsed < interval){
+     loops = loops +1;
      double volts = getVolts();
      //for testing
  
@@ -51,16 +52,16 @@ void takeReading(){
      Serial.println(volts);
      if(volts > 1.2 && volts < 1.8){
       runningTotal +=1;
-      Serial.println("Added to running total! with runningTotal " + String(runningTotal));  
+      Serial.println("Added to running total! with runningTotal " + String(runningTotal)+" and Loops " + loops);
      }
      else{
       Serial.println("COULDN'T ADD TO RUNNING TOTAL. Voltage was : "+ String(volts));
      }
      Serial.println("Time Ellapsed: " +String(timeElapsed) + "ms");
    }
-  double ratio = runningTotal/timeElapsed;
+  double ratio = runningTotal/loops;
   Serial.println("Ratio is currently: "+ String(ratio));
-  if(ratio > 0 && ratio < .02){
+  if(ratio > .05){
     Serial.println("Open Claw");
   }
   else{
