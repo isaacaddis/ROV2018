@@ -28,8 +28,8 @@ def vis(mirror=True):
         while cap.isOpened():
             ret_val, frame = cap.read()
             ret_val2, frame2 = cap2.read()
-            frame = cv2.flip(frame, 1)
-            frame = cv2.flip(frame, 0)
+            #frame = cv2.flip(frame, 1)
+            #frame = cv2.flip(frame, 0)
             cv2.imshow("45c Robotics",frame)
             cv2.imshow("45c Robotics 2",frame2)
            # cv2.waitKey(50)
