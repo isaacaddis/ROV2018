@@ -61,12 +61,10 @@ void takeReading(){
    }
   double ratio = runningTotal/loops;
   Serial.println("Ratio is currently: "+ String(ratio));
-  if(ratio > .30){
+  if(ratio > .10){
     Serial.println("Open Claw");
   }
   else{
     Serial.println("Don't open claw");
   }
-    delay(5000);
-
 }
