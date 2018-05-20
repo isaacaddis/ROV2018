@@ -30,7 +30,9 @@ ISR(ADC_vect) {//when new ADC value ready
 }
 void loop() 
 {
-  Serial.println(sample);
+  if(Serial.read()=="Ready"){
+    Serial.write(sample);
+  }
   }
 //double getVolts(){
 //  unsigned long startMillis= millis();  // Start of sample window
