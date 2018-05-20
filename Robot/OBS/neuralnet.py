@@ -1,9 +1,9 @@
 import tflearn
-import training_data
+import get_data
 
 learning_rate = 0.0001
 training_iters = 300000
-batch = word_batch = data.mfcc_batch_generator(64)
+batch = word_batch = get_data.get_data('data')
 X, Y = next(batch)
 trainX, trainY = X, Y
 
