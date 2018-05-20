@@ -3,13 +3,14 @@ import wave, struct, math
 ser = serial.Serial('/dev/ttyUSB0',9600,timeout=1)
 ser.isOpen()
 
-sampleRate = 44100.0 # hertz
+sampleRate = 38461.0 # hertz
 duration = 1.0       # seconds
 frequency = 440.0    # hertz
 
 i = 0
 
 while i < 1000:
+    ser.write('Ready')
     wavef = wave.open('sound'+str(i)+'.wav','w')
     wavef.setnchannels(1)
     wavef.setsampwidth(2)
