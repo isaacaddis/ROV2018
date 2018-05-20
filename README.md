@@ -25,9 +25,15 @@ Note: Running python instead of python3 may work, but qdarkstyle does not work c
 # Developer Information
 
 ## Calibration
-
+i
 To calibrate the camera for conversion from pixels to meters, find the meter/pixel conversion rate using a basic calibration setup.
 
 In Robot/Vision/, execute the calibration.py script, and align a reference object of **known length** aligned perfectly with the **600x600** screen.
 
-From there, divide known length (in meters, for the MATE competition) by pixel width (600), to find the corresponding conversion rate to the camera. 
+From there, divide known length (in meters, for the MATE competition) by pixel width (600), to find the corresponding conversion rate to the camera.
+
+### References
+
+#### WAV File Generation (OBS)
+
+[Andrew Ippoliti's Blog](http://blog.acipo.com/wave-generation-in-python/)
