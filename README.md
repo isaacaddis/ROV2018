@@ -25,7 +25,7 @@ Note: Running python instead of python3 may work, but qdarkstyle does not work c
 # Developer Information
 
 ## Calibration
-i
+
 To calibrate the camera for conversion from pixels to meters, find the meter/pixel conversion rate using a basic calibration setup.
 
 In Robot/Vision/, execute the calibration.py script, and align a reference object of **known length** aligned perfectly with the **600x600** screen.
