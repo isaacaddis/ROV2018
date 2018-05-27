@@ -32,10 +32,12 @@ In Robot/Vision/, execute the calibration.py script, and align a reference objec
 
 From there, divide known length (in meters, for the MATE competition) by pixel width (600), to find the corresponding conversion rate to the camera.
 
-## References
+## OBS
 
 To complete the OBS task for this year, we chose to use the Google AudioSet dataset for providing labeled urban data that we reasoned could be used to detect the frequency selective acoustive release mechanism during our mission runs.
 
 As for the electronics. a Raspberry Pi is used to interface with a Arduino to open a claw when a confident prediction is given that beeping is detected.
+
+Make sure to have Tensorflow installed. For compiling the source code onto the Raspberry Pi, CPU-only Tensorflow is used, but in the future a GPU-enabled Tensorflow edition may be used to speed up training times.
 
 [Andrew Ippoliti's Blog](http://blog.acipo.com/wave-generation-in-python/)
