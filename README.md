@@ -32,9 +32,7 @@ In Robot/Vision/, execute the calibration.py script, and align a reference objec
 
 From there, divide known length (in meters, for the MATE competition) by pixel width (600), to find the corresponding conversion rate to the camera.
 
-### References
-
-#### WAV File Generation (OBS)
+## References
 
 To complete the OBS task for this year, we chose to use the Google AudioSet dataset for providing labeled urban data that we reasoned could be used to detect the frequency selective acoustive release mechanism during our mission runs.
 
