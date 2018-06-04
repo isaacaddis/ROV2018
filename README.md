@@ -32,10 +32,11 @@ From there, divide known length (in meters, for the MATE competition) by pixel w
 
 ## OBS
 
-To run:
+To run (capture mic input and generate predictions. When a satisfactory "vehicle" prediction is given, send command to open claw through Serial):
 
 `
     cd Robot/OBS
+
     sudo python3 capture.py
 `
 
