@@ -18,8 +18,6 @@ open another terminal window (Ctrl+Shift+T), and run
 
 ### Main control computer
 
-Note: Running python instead of python3 may work, but qdarkstyle does not work correctly for us using Python 2.
-
 `cd ~/Desktop/ROV2018/Robot/vision && sudo python3 vision.py`
 
 # Developer Information
@@ -34,10 +32,16 @@ From there, divide known length (in meters, for the MATE competition) by pixel w
 
 ## OBS
 
+To run:
+
+`
+    cd Robot/OBS
+    sudo python3 capture.py
+`
+
 To complete the OBS task for this year, we chose to use the Google AudioSet dataset for providing labeled urban data that we reasoned could be used to detect the frequency selective acoustive release mechanism during our mission runs.
 
-As for the electronics. a Raspberry Pi is used to interface with a Arduino to open a claw when a confident prediction is given that beeping is detected.
+As for the electronics. a Raspberry Pi is used to interface with a Arduino to open a claw when a confident prediction is given that beeping is detected. (Using the Serial module on both devices)
 
 Make sure to have Tensorflow installed. For compiling the source code onto the Raspberry Pi, CPU-only Tensorflow is used, but in the future a GPU-enabled Tensorflow edition may be used to speed up training times.
 
-[Andrew Ippoliti's Blog](http://blog.acipo.com/wave-generation-in-python/)
