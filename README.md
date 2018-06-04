@@ -35,9 +35,7 @@ From there, divide known length (in meters, for the MATE competition) by pixel w
 To run (capture mic input and generate predictions. When a satisfactory "vehicle" prediction is given, send command to open claw through Serial):
 
 `
-    cd Robot/OBS
-
-    sudo python3 capture.py
+    cd Robot/OBS && sudo python3 capture.py
 `
 
 To complete the OBS task for this year, we chose to use the Google AudioSet dataset for providing labeled urban data that we reasoned could be used to detect the frequency selective acoustive release mechanism during our mission runs.
