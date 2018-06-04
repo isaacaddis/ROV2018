@@ -21,17 +21,11 @@ def vis(mirror=True):
  """)
     conversion_rate = 0.00214285714
     vis1 = True
-    vis2 = True
+    vis2 = False
     # Default - Red
     color_mode="red"
     cap = cv2.VideoCapture(1)
-    #cap.set(3,320)
-    #cap.set(4,216)
-    cap.set(5,15)
     cap2 = cv2.VideoCapture(0)
-   # cap2.set(3,320)
-   # cap2.set(4,216)
-    cap2.set(5,15)
     cv2.namedWindow("45c Robotics", cv2.WINDOW_NORMAL)
   #  cv2.resizeWindow("45c Robotics", 960,540)
     cv2.namedWindow("45c Robotics 2",cv2.WINDOW_NORMAL)
@@ -63,10 +57,10 @@ def vis(mirror=True):
                     for c in cnts:
                         if cv2.contourArea(c)<100:
                             continue
-                       # if cv2.contourArea(c)>1500:
-                           # continue
-                       # x,y,w,h = cv2.boundingRect(c)
-                       # cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),4)
+                        if cv2.contourArea(c)>1500:
+                            continue
+                        x,y,w,h = cv2.boundingRect(c)
+                        cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),4)
                         M = cv2.moments(c)
                         if M['m00']!=0:
                             cX = int(M['m10'] /M['m00'])

@@ -85,9 +85,17 @@ class Capture(object):
                 logger.info('Start processing.')
                 predictions = proc.get_predictions(
                     self._sample_rate, self._process_buf)
-                logger.info(
-                    'Predictions: {}'.format(format_predictions(predictions))
-                )
+                for i in predictions:
+                    if i[0] == "Vehicle" and (float(i[1])>.2):
+                        print("OBS Release")
+                    else:
+                        print(i[0])
+                        print(i[1])
+                #print("Type: ")
+                #print(type(predictions))
+                #logger.info(
+                    #'Predictions: {}'.format(format_predictions(predictions))
+                #)
 
                 logger.info('Stop processing.')
                 self._process_buf = None
