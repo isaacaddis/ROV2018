@@ -24,11 +24,16 @@ open another terminal window (Ctrl+Shift+T), and run
 
 ## Calibration
 
-To calibrate the camera for conversion from pixels to meters, find the meter/pixel conversion rate using a basic calibration setup.
+We've found that the optimal way to calibrate cameras for OpenCV is by generating parameters for use in distance calculation.
 
-In Robot/Vision/, execute the calibration.py script, and align a reference object of **known length** aligned perfectly with the **600x600** screen.
+f_x refers to f*m_x
+f_y refers to f*m_y
 
-From there, divide known length (in meters, for the MATE competition) by pixel width (600), to find the corresponding conversion rate to the camera.
+.. and so on.
+
+For more information, visit [this Stackoverflow answer](https://stackoverflow.com/a/27502480)
+
+We then use these calibrated camera values to indentify two contours and relate them in the orientation of a triangle. Using the Law of Cosines, we can use an angle orientation value to solve for the distance between two contours, the **opposite** side of the triangle with respect to the camera as a point on that triangle.
 
 ## OBS
 
