@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa0691c9-0d8a-40c2-943d-eeb36c074fd4" name="Default" comment="" />
+    <list default="true" id="aa0691c9-0d8a-40c2-943d-eeb36c074fd4" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Tests/0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/9.jpg" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,12 +32,24 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="vision.py" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="vision.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Robot/vision/vision.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
-              <caret line="171" column="59" selection-start-line="171" selection-start-column="59" selection-end-line="171" selection-end-column="59" />
+            <state relative-caret-position="357">
+              <caret line="146" column="28" lean-forward="true" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chess.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tests/chess.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -29,6 +63,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Robot/vision/vision.py" />
+        <option value="$PROJECT_DIR$/Tests/chess.py" />
       </list>
     </option>
   </component>
@@ -73,7 +108,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Tests/chess.py" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -102,22 +137,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="210" y="189" width="1400" height="988" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
     </layout>
@@ -128,8 +164,25 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Robot/vision/vision.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
+        <state relative-caret-position="2565">
           <caret line="171" column="59" selection-start-line="171" selection-start-column="59" selection-end-line="171" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robot/vision/vision.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="146" column="28" lean-forward="true" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/chess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
