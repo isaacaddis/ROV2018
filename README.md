@@ -26,9 +26,14 @@ open another terminal window (Ctrl+Shift+T), and run
 
 We've eliminated the need for a calibration step in operating the vision system on the robot!
 
-Simply calculate focal length using the functions in the helper file (in folder Tests/), or calculate these values real time. 
+Simply calculate focal length using the functions in the helper file (in folder Tests/).
 
-**Note**: You *must* know the real distances from camera
+**Note**: To find these values, you **must** have an object of known width and known distance from the camera to work. 
+
+### Vision System
+
+The *Law of Cosines* tells us that given two side lengths and an angle, we can find the missing third side. When the camera is placed in front of two contours, the system of the camera, the first object, and the second object, forms a triangle. Finding the angle measure is relatively straight-forward, for a quick measurement, you can simply place a protractor from the leftmost edge of the camera and measure up to the angle measure the camera marks the protractor.  
+
 ## OBS
 
 To run (capture mic input and generate predictions. When a satisfactory "vehicle" prediction is given, send command to open claw through Serial):
@@ -42,4 +47,6 @@ To complete the OBS task for this year, we chose to use the Google AudioSet data
 As for the electronics. a Raspberry Pi is used to interface with a Arduino to open a claw when a confident prediction is given that beeping is detected. (Using the Serial module on both devices)
 
 Make sure to have Tensorflow installed. For compiling the source code onto the Raspberry Pi, CPU-only Tensorflow is used, but in the future a GPU-enabled Tensorflow edition may be used to speed up training times.
+
+If the pre-trained model is needed, please contact me. The models are too large of files to be distributed on Github. 
 
