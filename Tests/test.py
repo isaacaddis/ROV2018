@@ -4,7 +4,7 @@ from time import sleep
 import sys
 import os
 import keyboard
-import helpers
+from helpers import *
 import math
 
 __author__ = "isaacaddis"
@@ -21,11 +21,9 @@ def vis(mirror=True):
      (_)  \______/ (_______/  |/   \__/(_______)|/ \___/ (_______)   )_(   \_______/(_______/\_______)
 
  """)
-    vis1 = True
+    #start mission without turning on vision
+    vis1 = False
     ANGLE = 1
-    FOCAL_LENGTH = 1
-    KNOWN_WIDTH_1 = 1
-    KNOWN_WIDTH_2 = 1
     cap2 = cv2.VideoCapture(0)
     cv2.namedWindow("45c Robotics", cv2.WINDOW_NORMAL)
     cv2.namedWindow("45c Robotics 2",cv2.WINDOW_NORMAL)
@@ -57,14 +55,13 @@ def vis(mirror=True):
                             continue
                         x,y,w,h = cv2.boundingRect(c)
                         cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),4)
-                        M = cv2.moments(c)
-                        contous.append(c)
+                        contours.append(c)
                         if len(centers)==2:
                             area1 = helpers.area_of_contour(centers[0])
                             area2 = helpers.area_of_contour(centers[1])
-                            focal_length_1 = helpers.calc_focal_length(KNOWN_DISTANCE_1,KNOWN_WIDTH_1, area1)
-                            focal_length_2 = helpers.calc_focal_length(KNOWN_DISTANCE_2,KNOWN_WIDTH_2, area1)
-                            distance_between_contours = math.sqrt((focal_length_1**2)+(focal_length_2**2)-(2*focal_length_1*focal_length_2*(math.cos(ANGLE))))
+                            distance_to_camera_1 = helpers.distance_from_camera(helpers.KNOWN_WIDTH_1,helpers.focal_length_1, area1[1][0])
+                            distance_from_camera_2 = helpers.distance_from_camera(helpers.KNOWN_WIDTH_2,helpers.focal_length_1, area2[1][0])
+                            distance_between_contours = math.sqrt((distance_to_camera_1**2)+(distance_from_camera_2**2)-(2*distance_to_camera_1*distance_from_camera_2*(math.cos(ANGLE))))
                             cv2.putText(frame,str(distance_between_contours)+" meters",(frame.shape[1] - 200, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,2.0, (0, 255, 0), 3)
             cv2.putText(frame,"Vision State: "+str(vis1),(frame.shape[1] - 400, frame.shape[0] - 200), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 3)
             cv2.imshow("45c Robotics",frame)

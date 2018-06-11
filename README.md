@@ -24,17 +24,11 @@ open another terminal window (Ctrl+Shift+T), and run
 
 ## Calibration
 
-We've found that the optimal way to calibrate cameras for OpenCV is by generating parameters for use in distance calculation.
+We've eliminated the need for a calibration step in operating the vision system on the robot!
 
-f_x refers to f*m_x
-f_y refers to f*m_y
+Simply calculate focal length using the functions in the helper file (in folder Tests/), or calculate these values real time. 
 
-.. and so on.
-
-For more information, visit [this Stackoverflow answer](https://stackoverflow.com/a/27502480)
-
-We then use these calibrated camera values to indentify two contours and relate them in the orientation of a triangle. Using the Law of Cosines, we can use an angle orientation value to solve for the distance between two contours, the **opposite** side of the triangle with respect to the camera as a point on that triangle.
-
+**Note**: You *must* know the real distances from camera
 ## OBS
 
 To run (capture mic input and generate predictions. When a satisfactory "vehicle" prediction is given, send command to open claw through Serial):
