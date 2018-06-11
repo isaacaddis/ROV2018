@@ -6,15 +6,17 @@ For more information about our team, please visit [camsrov.com](http://camsrov.c
 
 ## To run code
 
-**Note**: You must have necessary packages installed for these scripts to run. Make sure you have pip installed and follow error messages.
+**Note**: You must have necessary packages installed for these scripts to run. Make sure you have pip installed and follow error messages. We also recommend using *virtualenv* during development. 
 
 ### Raspberry Pi
 
 `cd ~/Desktop/ROV2018/Robot/45C_Pi && sudo python driver.py`
 
-open another terminal window (Ctrl+Shift+T), and run 
+This is the main, driver, file that controls the GUI (which is developed in HTML/CSS/JS, but wrapped in Python using htmlPy). Open another terminal window (Ctrl+Shift+T), and run 
 
 `sudo python ser.py`
+
+This is the file that handles getting Arduino sensor input and processing it through Python.
 
 ### Main control computer
 
@@ -34,6 +36,8 @@ Simply calculate focal length using the functions in the helper file (in folder 
 
 The *Law of Cosines* tells us that given two side lengths and an angle, we can find the missing third side. When the camera is placed in front of two contours, the system of the camera, the first object, and the second object, forms a triangle. Finding the angle measure is relatively straight-forward, for a quick measurement, you can simply place a protractor from the leftmost edge of the camera and measure up to the angle measure the camera marks the protractor.  
 
+![Law of Cosines](https://raw.githubusercontent.com/isaacaddis/ROV2018/master/lcos.gif)
+
 ## OBS
 
 To run (capture mic input and generate predictions. When a satisfactory "vehicle" prediction is given, send command to open claw through Serial):
@@ -48,5 +52,5 @@ As for the electronics. a Raspberry Pi is used to interface with a Arduino to op
 
 Make sure to have Tensorflow installed. For compiling the source code onto the Raspberry Pi, CPU-only Tensorflow is used, but in the future a GPU-enabled Tensorflow edition may be used to speed up training times.
 
-If the pre-trained model is needed, please contact me. The models are too large of files to be distributed on Github. 
+If the pre-trained model is needed, please contact me and I will send the models through Google Drive, or a similar service. The models are too large of files to be distributed on Github, and Git LFS never seems to be working the way I want it. 
 
