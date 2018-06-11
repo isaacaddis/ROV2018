@@ -36,7 +36,7 @@ Simply calculate focal length using the functions in the helper file (in folder 
 
 The *Law of Cosines* tells us that given two side lengths and an angle, we can find the missing third side. When the camera is placed in front of two contours, the system of the camera, the first object, and the second object, forms a triangle. Finding the angle measure is relatively straight-forward, for a quick measurement, you can simply place a protractor from the leftmost edge of the camera and measure up to the angle measure the camera marks the protractor.  
 
-![Law of Cosines](https://raw.githubusercontent.com/isaacaddis/ROV2018/master/lcos.gif)
+![Law of Cosines](https://github.com/isaacaddis/ROV2018/blob/master/Tests/lcos.gif)
 
 ## OBS
 
