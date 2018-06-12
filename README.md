@@ -26,6 +26,8 @@ This is the file that handles getting Arduino sensor input and processing it thr
 
 ## Calibration
 
+Focal length for this year's front camera: *182*
+
 We've eliminated the need for a calibration step in operating the vision system on the robot!
 
 Simply calculate focal length using the functions in the helper file (in folder Tests/).
