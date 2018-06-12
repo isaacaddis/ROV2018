@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import argparse
+import RPi.GPIO as GPIO
 import logging.config
 import threading
 import time
@@ -24,6 +25,7 @@ from log_config import LOGGING
 from audio.captor import Captor
 from audio.processor import WavProcessor, format_predictions
 
+PIN = 3
 
 parser = argparse.ArgumentParser(description='Capture and process audio')
 parser.add_argument('--min_time', type=float, default=5, metavar='SECONDS',
@@ -88,7 +90,9 @@ class Capture(object):
                 for i in predictions:
                     if i[0] == "Vehicle" and (float(i[1])>.2):
                         print("OBS Release")
+                        GPIO.output(pin,GPIO.HIGH)
                     else:
+                        GPIO.output(pin,GPIO.LOW)
                         print(i[0])
                         print(i[1])
                 #print("Type: ")
