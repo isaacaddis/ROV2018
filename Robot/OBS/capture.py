@@ -13,7 +13,6 @@
 # limitations under the License.
 
 import argparse
-import RPi.GPIO as GPIO
 import logging.config
 import threading
 import time
@@ -47,7 +46,7 @@ class Capture(object):
     _save_path = None
     _processor_sleep_time = 0.01
     _process_buf = None
-    _sample_rate = 16000
+    _sample_rate = 44100
 
     def __init__(self, min_time, max_time, path=None):
         if path is not None:
@@ -88,18 +87,16 @@ class Capture(object):
                 predictions = proc.get_predictions(
                     self._sample_rate, self._process_buf)
                 for i in predictions:
-                    if i[0] == "Vehicle" and (float(i[1])>.2):
+                    if i[0] == "Camera" and (float(i[1])>.1):
                         print("OBS Release")
-                        GPIO.output(pin,GPIO.HIGH)
                     else:
-                        GPIO.output(pin,GPIO.LOW)
                         print(i[0])
                         print(i[1])
-                #print("Type: ")
-                #print(type(predictions))
-                #logger.info(
-                    #'Predictions: {}'.format(format_predictions(predictions))
-                #)
+                print("Type: ")
+                # print(type(predictions))
+                # logger.info(
+                #     'Predictions: {}'.format(format_predictions(predictions))
+                # )
 
                 logger.info('Stop processing.')
                 self._process_buf = None

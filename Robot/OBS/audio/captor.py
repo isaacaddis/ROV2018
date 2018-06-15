@@ -29,7 +29,7 @@ class Captor(object):
     It waiting till "ask_data_event" is set and then call "callback" as soon as
     data ready
     """
-    _sample_rate = 16000
+    _sample_rate = 44100
     _capture_rate = _sample_rate*2  # bytes per second
     _ask_data_event = None
     _shutdown_event = None

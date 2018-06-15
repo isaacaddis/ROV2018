@@ -22,10 +22,10 @@ class AudioDevice(object):
     def __init__(self):
         self.pa = pyaudio.PyAudio()
         self.in_stream = self.pa.open(format=pyaudio.paInt16, channels=1,
-                                      rate=16000, input=True)
+                                      input_device_index = 4, rate=44100, input=True)
         self.in_stream.start_stream()
-        self.out_stream = self.pa.open(format=pyaudio.paInt16, channels=1,
-                                       rate=16000, output=True)
+        self.out_stream = self.pa.open(format=pyaudio.paInt16, channels=1,input_device_index = 4,
+                                       rate=44100, output=True)
         self.out_stream.start_stream()
 
     def close(self):
@@ -37,7 +37,7 @@ class AudioDevice(object):
         return self.out_stream.write(b)
 
     def read(self, n):
-        return self.in_stream.read(n)
+        return self.in_stream.read(n,exception_on_overflow=False)
 
     def flush(self):
         pass
