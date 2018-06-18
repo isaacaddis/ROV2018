@@ -23,7 +23,7 @@ EMBEDDING_SIZE = 128  # Size of embedding layer.
 MAX_FRAMES = 300
 
 # Hyperparameters used in feature and example generation.
-SAMPLE_RATE = 44100
+SAMPLE_RATE = 48000
 STFT_WINDOW_LENGTH_SECONDS = 0.025
 STFT_HOP_LENGTH_SECONDS = 0.010
 NUM_MEL_BINS = NUM_BANDS

@@ -46,7 +46,7 @@ class Capture(object):
     _save_path = None
     _processor_sleep_time = 0.01
     _process_buf = None
-    _sample_rate = 44100
+    _sample_rate = 48000
 
     def __init__(self, min_time, max_time, path=None):
         if path is not None:
@@ -86,17 +86,17 @@ class Capture(object):
                 logger.info('Start processing.')
                 predictions = proc.get_predictions(
                     self._sample_rate, self._process_buf)
-                for i in predictions:
-                    if i[0] == "Camera" and (float(i[1])>.1):
-                        print("OBS Release")
-                    else:
-                        print(i[0])
-                        print(i[1])
-                print("Type: ")
-                # print(type(predictions))
-                # logger.info(
-                #     'Predictions: {}'.format(format_predictions(predictions))
-                # )
+                # for i in predictions:
+                #     if i[0] == "Chirp tone" and (float(i[1])>.1):
+                #         print("OBS Release")
+                #     else:
+                #         print(i[0])
+                #         print(i[1])
+                # print("Type: ")
+                print(type(predictions))
+                logger.info(
+                    'Predictions: {}'.format(format_predictions(predictions))
+                )
 
                 logger.info('Stop processing.')
                 self._process_buf = None
