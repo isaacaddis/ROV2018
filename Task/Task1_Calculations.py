@@ -1,3 +1,13 @@
+#-------------------------------------------------------------------------------
+# Name:        Task1_Calculations
+# Purpose:
+#
+# Author:      Jiajer Ho
+#
+# Created:     20/06/2018
+#-------------------------------------------------------------------------------
+
+
 def calculations():
     heading = float(raw_input("Heading: "))
     timeUntilFailure = float(raw_input("Time Until Failure: "))
@@ -18,7 +28,4 @@ def calculations():
     print("Wind vector: "+ str(windPush)+ " at " + str(windBlowing) + " degrees")
     print("On the map, this will be about: "+ str(windPush * .7)+ "cm")
 calculations()
-
-
-
 
