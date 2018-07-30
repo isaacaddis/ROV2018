@@ -21,19 +21,19 @@ pinMode(LED_BUILTIN, OUTPUT);
 void loop() {
 
 digitalWrite(LED_BUILTIN, LOW); 
-Serial1.readBytes(mystr,4); //Read the serial data and store in var
+Serial.readBytes(mystr,4); //Read the serial data and store in var
 String str(mystr);
 testOutput = str.toInt();
  if (testOutput>= 1 and testOutput<= 10) {
-    Serial.println("Forwards");  
+    Serial1.println("Forwards");  
   
  }
   if (testOutput>= 11 and testOutput<= 20) {
-    Serial.println("Backwards"); 
+    Serial1.println("Backwards"); 
   
  }
    if (testOutput<= 1) {
-    Serial.println("NONE"); 
+    Serial1.println("NONE"); 
   
  }
 delay(100);
