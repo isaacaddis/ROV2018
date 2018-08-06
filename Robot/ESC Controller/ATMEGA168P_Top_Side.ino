@@ -18,6 +18,7 @@ String str2;
 char mystr[5];
 void setup() {
   // Begin the Serial at 9600 Baud
+ delay(1000);
   Serial.begin(9600);
 }
 
