@@ -1,7 +1,7 @@
 /**
  * @author Jiajer Ho and Alexander Vazquez
  * 
- * ROV ESC Controller Top Side Code (Transmitter)  7/29/2018
+ * ROV ESC Controller Topside Code (Transmitter)  7/29/2018
  * Use ATMEGA168P
  * 
  * Takes data from Joystick and output TX data  
