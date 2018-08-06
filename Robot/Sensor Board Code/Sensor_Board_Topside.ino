@@ -1,3 +1,13 @@
+/**
+ * @author Jiajer Ho and Frank Cq
+ * 
+ * ROV Sensor Board Topside (Reciver)  7/29/2018
+ * Use Arduino MEGA Board
+ * 
+ * Takes data from Sensor Board 
+ * 
+ */
+
 char mystr[12]; //Initialized variable to store recieved data
 
 void setup() {
