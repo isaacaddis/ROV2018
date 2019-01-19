@@ -1,3 +1,4 @@
+// Written by Jiajer Ho
 
 #include <Wire.h>
 #include <LCD.h>
